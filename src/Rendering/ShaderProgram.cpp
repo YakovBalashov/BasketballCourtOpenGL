@@ -1,5 +1,7 @@
 ﻿#include "Rendering/ShaderProgram.h"
 
+#include <iostream>
+
 
 ShaderProgram::ShaderProgram(const char* vertexShaderFile, const char* fragmentShaderFile)
 {

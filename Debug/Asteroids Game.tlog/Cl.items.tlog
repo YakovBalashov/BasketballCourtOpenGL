@@ -1,6 +1,8 @@
-C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\core\basketball.cpp;C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\Debug\basketball.obj
-C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\core\rendering.cpp;C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\Debug\rendering.obj
-C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\src\GameObjects\MeshObject.cpp;C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\Debug\MeshObject.obj
-C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\src\Rendering\Mesh.cpp;C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\Debug\Mesh.obj
-C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\src\Rendering\ShaderProgram.cpp;C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\Debug\ShaderProgram.obj
-C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\src\GameObjects\TestObject.cpp;C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\Debug\TestObject.obj
+S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\core\basketball.cpp;S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\Debug\basketball.obj
+S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\src\GameObjects\RenderableObject.cpp;S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\Debug\RenderableObject.obj
+S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\src\Game\GameEvents.cpp;S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\Debug\GameEvents.obj
+S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\src\Game\GameUtils.cpp;S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\Debug\GameUtils.obj
+S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\src\GameObjects\MeshObject.cpp;S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\Debug\MeshObject.obj
+S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\src\Rendering\Mesh.cpp;S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\Debug\Mesh.obj
+S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\src\Rendering\ShaderProgram.cpp;S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\Debug\ShaderProgram.obj
+S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\src\GameObjects\TestObject.cpp;S:\FEL\Semester-4\PGR\SemProject\BasketballCourtGL\Debug\TestObject.obj
