@@ -9,6 +9,8 @@ public:
 
     static void CreateMesh(GLfloat* vertices, unsigned int* indices, int vertexCount, int indexCount);
 
+    static void CreateMeshFromFile(const std::string& path);
+    
     void RenderObject(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix) override;
     
     MeshObject() = default;

@@ -8,6 +8,7 @@
 #include "GameObjects/GameObject.h"
 #include "Rendering/ShaderProgram.h"
 #include "Game/GameEvents.h"
+#include "GameObjects/CameraObject.h"
 
 
 class GameUtils
@@ -22,7 +23,6 @@ public:
         float cameraAzimuthAngle;
 
         bool gameOver;
-        bool keyMap[KEYS_COUNT];
 
         float elapsedTime;
         float missileLaunchTime;
@@ -31,7 +31,9 @@ public:
 
     std::unique_ptr<ShaderProgram> mainShader;
 
-    std::list<GameObject*> gameObjects;
+    std::vector<std::shared_ptr<GameObject>> gameObjects;
+
+    std::shared_ptr<CameraObject> playerCamera;
 
     static std::unique_ptr<GameUtils> instance;
 
@@ -40,15 +42,15 @@ public:
 
     static void InitializeFramework();
 
-    static void SetupApp(int argc, char** argv);
+    static void InitializeGlut(int argc, char** argv);
 
-    void StartApp();
+    void StartGame();
 
-    static void FinalizeApplication();
-
-    static void PrintGPUInfo();
-    
     static void InitializeShaders();
 
     static void InitializeModels();
+
+    static void FinalizeGame();
+
+    static void PrintGPUInfo();
 };

@@ -4,32 +4,47 @@
 
 std::unique_ptr<GameUtils> GameUtils::instance = nullptr;
 
+GLfloat testVertices[] = {
+    -0.5f, 0.0f, 0.5f,
+    -0.5f, 0.0f, -0.5f,
+    0.5f, 0.0f, -0.5f,
+    0.5f, 0.0f, 0.5f,
+    0.0f, 0.8f, 0.0f,
+};
+
+GLuint testIndices[] =
+{
+    0, 1, 2,
+    0, 2, 3,
+    0, 1, 4,
+    1, 2, 4,
+    2, 3, 4,
+    3, 0, 4
+};
+
 GameUtils::GameUtils()
 {
     if (instance) return;
     instance = std::unique_ptr<GameUtils>(this);
 }
 
-void GameUtils::SetupApp(int argc, char** argv)
+void GameUtils::InitializeGlut(int argc, char** argv)
 {
     glutInit(&argc, argv);
 
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH | GLUT_STENCIL);
 
-    // initial window size
-    glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-    glutCreateWindow(WINDOW_TITLE);
+    glutInitWindowSize(Window::width, Window::height);
+    glutCreateWindow(Window::title);
 
     glutDisplayFunc(GameEvents::OnRenderDisplay);
-    // register callback for change of window size
     glutReshapeFunc(GameEvents::OnReshapeWindow);
-    // register callbacks for keyboard
     glutKeyboardFunc(GameEvents::OnKeyPress);
     glutPassiveMotionFunc(GameEvents::OnPassiveMouseMotion);
     glutSetCursor(GLUT_CURSOR_NONE);
 
     glutTimerFunc(33, GameEvents::OnTimer, 0);
-    glutWMCloseFunc(FinalizeApplication);
+    glutWMCloseFunc(FinalizeGame);
 }
 
 void GameUtils::InitializeFramework()
@@ -38,7 +53,7 @@ void GameUtils::InitializeFramework()
     pgr::dieWithError("PGR Framework Initialization Failed");
 }
 
-void GameUtils::StartApp()
+void GameUtils::StartGame()
 {
     // initialize random seed
     srand((unsigned int)time(NULL));
@@ -50,21 +65,20 @@ void GameUtils::StartApp()
     InitializeShaders();
     InitializeModels();
 
-    gameObjects.push_back(new TestObject(glm::vec3(5.0f, -1.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
-    gameObjects.push_back(new TestObject(glm::vec3(5.0f, 0.0f, -1.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
-    gameObjects.push_back(new TestObject(glm::vec3(5.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
-    gameObjects.push_back(new TestObject(glm::vec3(5.0f, 1.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
-    gameObjects.push_back(new TestObject(glm::vec3(5.0f, 0.0f, 1.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
+    playerCamera = std::make_shared<CameraObject>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f));
+
+    gameObjects.push_back(playerCamera);
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, -1.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 0.0f, -1.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 1.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 0.0f, 1.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
 
 
     gameInfo.cameraAzimuthAngle = 0.0f;
     gameInfo.cameraElevationAngle = 0.0f;
     glutMainLoop();
-}
-
-void GameUtils::FinalizeApplication()
-{
-    
 }
 
 void GameUtils::InitializeShaders()
@@ -77,11 +91,16 @@ void GameUtils::InitializeModels()
     TestObject::CreateMesh(testVertices, testIndices, sizeof(testVertices), sizeof(testIndices));
 }
 
+void GameUtils::FinalizeGame()
+{
+    
+}
+
 void GameUtils::PrintGPUInfo()
 {
-    const GLubyte* renderer = glGetString(GL_RENDERER); // GPU renderer string
-    const GLubyte* vendor = glGetString(GL_VENDOR); // GPU vendor string
-    const GLubyte* version = glGetString(GL_VERSION); // OpenGL version string
+    const GLubyte* renderer = glGetString(GL_RENDERER);
+    const GLubyte* vendor = glGetString(GL_VENDOR);
+    const GLubyte* version = glGetString(GL_VERSION);
 
     std::cout << "GPU Vendor:   " << vendor << '\n';
     std::cout << "GPU Renderer: " << renderer << '\n';
