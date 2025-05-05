@@ -4,7 +4,7 @@
 #include <list>
 
 #include "pgr.h"
-#include "Game/data.h"
+#include "Game/config.h"
 #include "GameObjects/GameObject.h"
 #include "Rendering/ShaderProgram.h"
 #include "Game/GameEvents.h"

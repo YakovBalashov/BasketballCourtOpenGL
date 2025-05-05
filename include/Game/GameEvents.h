@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "pgr.h"
-#include "Game/data.h"
+#include "Game/config.h"
 #include "GameObjects/RenderableObject.h"
 
 class GameEvents

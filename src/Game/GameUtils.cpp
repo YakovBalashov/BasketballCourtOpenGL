@@ -1,4 +1,6 @@
 ﻿#include "Game/GameUtils.h"
+
+#include "GameObjects/ModelObject.h"
 #include "GameObjects/TestObject.h"
 
 
@@ -20,6 +22,18 @@ GLuint testIndices[] =
     1, 2, 4,
     2, 3, 4,
     3, 0, 4
+};
+
+std::vector<Vertex> groundVertices = {
+    {{-10.0f, 0.0f, -10.0f}, {0.0f, 1.0f, 0.0f}, {0.0f, 0.0f}},  // Bottom-left
+    {{ 10.0f, 0.0f, -10.0f}, {0.0f, 1.0f, 0.0f}, {10.0f, 0.0f}}, // Bottom-right
+    {{ 10.0f, 0.0f,  10.0f}, {0.0f, 1.0f, 0.0f}, {10.0f, 10.0f}},// Top-right
+    {{-10.0f, 0.0f,  10.0f}, {0.0f, 1.0f, 0.0f}, {0.0f, 10.0f}}, // Top-left
+};
+
+std::vector<GLuint> groundIndices = {
+    0, 1, 2,
+    0, 2, 3
 };
 
 GameUtils::GameUtils()
@@ -67,13 +81,22 @@ void GameUtils::StartGame()
 
     playerCamera = std::make_shared<CameraObject>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f));
 
+    auto concreteTexture = pgr::createTexture("assets/textures/concrete_a.jpg");
+    
+    auto testMesh = std::make_shared<Mesh>(static_cast<const GLfloat*>(testVertices),static_cast<const GLuint*>(testIndices),5, 6);
+    
+    /*auto modelMesh = std::make_shared<Mesh>("S:/FEL/Semester-4/PGR/SemProject/BasketballCourtGL/assets/models/Basketball_ball.obj");
+    auto basketballModel = std::make_shared<Model>("S:/FEL/Semester-4/PGR/SemProject/BasketballCourtGL/assets/models/Basket_Ball.obj");
+    auto modelObject = std::make_shared<ModelObject>(glm::vec3(5.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), basketballModel);*/
+    
     gameObjects.push_back(playerCamera);
-    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, -1.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
-    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 0.0f, -1.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
-    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
-    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 1.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
-    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 0.0f, 1.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
-    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(0.0f), glm::vec3(1.0f)));
+    // gameObjects.push_back(modelObject);
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, -1.0f, 0.0f), glm::vec3(0.0f), glm::vec3(0.5f), testMesh));
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 0.0f, -1.0f), glm::vec3(0.0f), glm::vec3(1.0f), testMesh));
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), testMesh));
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 1.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), testMesh));
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(5.0f, 0.0f, 1.0f), glm::vec3(0.0f), glm::vec3(1.0f), testMesh));
+    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(0.0f), glm::vec3(1.0f), testMesh));
 
 
     gameInfo.cameraAzimuthAngle = 0.0f;
@@ -88,7 +111,8 @@ void GameUtils::InitializeShaders()
 
 void GameUtils::InitializeModels()
 {
-    TestObject::CreateMesh(testVertices, testIndices, sizeof(testVertices), sizeof(testIndices));
+    
+    // TestObject::CreateMesh(testVertices, testIndices, sizeof(testVertices), sizeof(testIndices));
 }
 
 void GameUtils::FinalizeGame()
