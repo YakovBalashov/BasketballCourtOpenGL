@@ -1,6 +1,6 @@
 ﻿#include "GameObjects/TestObject.h"
 
-void TestObject::Update(float deltaTime)
+void TestObject::Update()
 {
     rotation.x += 1.0f;
     rotation.y += 1.0f;

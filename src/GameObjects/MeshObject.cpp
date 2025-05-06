@@ -1,22 +1,16 @@
-﻿#include "GameObjects/MeshObject.h"
+﻿#include "Rendering/ModelLoader.h"
 
-#include <iostream>
+#include "GameObjects/MeshObject.h"
 
-#include "../../core/rendering.h"
-
-std::shared_ptr<Mesh> MeshObject::mesh = nullptr;
-
-void MeshObject::CreateMesh(GLfloat* vertices, unsigned int* indices, int vertexCount, int indexCount)
-{
-    if (mesh) return;
-    mesh = std::make_shared<Mesh>(vertices, vertexCount, indices, indexCount);
-}
-
-void MeshObject::Render(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix)
+void MeshObject::RenderObject(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix)
 {
     if (!mesh) return;
-    mainShader->UseProgram();
-    RenderableObject::Render(viewMatrix, projectionMatrix);
     mesh->Render();
     glUseProgram(0);
+}
+
+MeshObject::MeshObject(const glm::vec3& position, const glm::vec3& rotation, const glm::vec3& scale,
+                       const std::shared_ptr<Mesh>& mesh, const std::shared_ptr<ShaderProgram>& shaderProgram)
+    : RenderableObject(position, rotation, scale, shaderProgram), mesh(mesh)
+{
 }
