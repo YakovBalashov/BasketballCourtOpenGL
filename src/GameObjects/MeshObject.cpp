@@ -9,7 +9,8 @@ void MeshObject::RenderObject(const glm::mat4& viewMatrix, const glm::mat4& proj
     glUseProgram(0);
 }
 
-MeshObject::MeshObject(const glm::vec3& position, const glm::vec3& rotation, const glm::vec3& scale, const std::shared_ptr<Mesh>& mesh) :
-    RenderableObject(position, rotation, scale), mesh(mesh)
+MeshObject::MeshObject(const glm::vec3& position, const glm::vec3& rotation, const glm::vec3& scale,
+                       const std::shared_ptr<Mesh>& mesh, const std::shared_ptr<ShaderProgram>& shaderProgram)
+    : RenderableObject(position, rotation, scale, shaderProgram), mesh(mesh)
 {
 }

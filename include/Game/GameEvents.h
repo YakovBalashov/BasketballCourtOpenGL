@@ -4,6 +4,8 @@
 #include "Game/config.h"
 #include "GameObjects/RenderableObject.h"
 
+#define millisecondsToSeconds 0.001f
+
 class GameEvents
 {
 public:
@@ -15,5 +17,5 @@ public:
 
     static void OnPassiveMouseMotion(int mousePositionX, int mousePositionY);
 
-    static void OnKeyPress(unsigned char keyPressed, int mouseX, int mouseY);
+    // static void OnKeyPress(unsigned char keyPressed, int mouseX, int mouseY);
 };

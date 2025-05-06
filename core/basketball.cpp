@@ -1,11 +1,11 @@
-#include "Game/GameUtils.h"
+#include "Game/GameManager.h"
 
 
 int main(const int argc, char** argv)
 {
-    GameUtils::InitializeGlut(argc, argv);
-    GameUtils::InitializeFramework();
-    auto gameUtils = std::make_unique<GameUtils>();
-    GameUtils::instance->StartGame();
+    GameManager::InitializeGlut(argc, argv);
+    GameManager::InitializeFramework();
+    auto gameUtils = std::make_unique<GameManager>();
+    GameManager::instance->StartGame();
     return 0;
 }
