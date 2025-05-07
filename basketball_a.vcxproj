@@ -1117,6 +1117,7 @@
     <ClInclude Include="include\Rendering\ModelLoader.h" />
     <ClInclude Include="include\Rendering\ShaderProgram.h" />
     <ClInclude Include="include\Rendering\Texture.h" />
+    <ClInclude Include="include\Rendering\vertices.h" />
     <ClInclude Include="in\Mesh.h" />
   </ItemGroup>
   <ItemGroup>

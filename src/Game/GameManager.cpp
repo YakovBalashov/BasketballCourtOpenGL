@@ -93,7 +93,7 @@ void GameManager::StartGame()
     auto concreteMesh = std::make_shared<Mesh>(groundVertices, groundIndices, concreteTexture->getTextureID());
     auto testMesh = std::make_shared<Mesh>(static_cast<const GLfloat*>(testVertices),static_cast<const GLuint*>(testIndices),5, 6);
     
-    auto skybox = std::make_shared<Skybox>(mainShader);
+    skybox = std::make_shared<Skybox>(skyboxShader);
     playerCamera = std::make_shared<PlayerCamera>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f));
 
     gameObjects.push_back(playerCamera);
@@ -108,7 +108,8 @@ void GameManager::StartGame()
 
 void GameManager::InitializeShaders()
 {
-    instance->mainShader = std::make_shared<ShaderProgram>("shaders/simple.vert", "shaders/simple.frag");
+    instance->mainShader = std::make_shared<ShaderProgram>(ShaderPaths::simpleVertexShader, ShaderPaths::simpleFragmentShader);
+    instance->skyboxShader = std::make_shared<ShaderProgram>(ShaderPaths::skyboxVertexShader, ShaderPaths::skyboxFragmentShader);
 }
 
 void GameManager::InitializeModels()

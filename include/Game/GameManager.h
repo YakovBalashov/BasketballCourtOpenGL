@@ -9,6 +9,8 @@
 #include "Rendering/ShaderProgram.h"
 #include "Game/GameEvents.h"
 #include "GameObjects/PlayerCamera.h"
+#include "GameObjects/Skybox.h"
+#include "Rendering/vertices.h"
 
 
 class GameManager
@@ -34,6 +36,8 @@ public:
     
     std::shared_ptr<PlayerCamera> playerCamera;
 
+    std::shared_ptr<Skybox> skybox;
+    
     static std::unique_ptr<GameManager> instance;
 
 
@@ -52,4 +56,8 @@ public:
     static void FinalizeGame();
 
     static void PrintGPUInfo();
+
+private:
+    std::shared_ptr<ShaderProgram> skyboxShader;
+
 };

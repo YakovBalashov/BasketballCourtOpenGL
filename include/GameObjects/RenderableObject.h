@@ -1,6 +1,5 @@
 ﻿#pragma once
-
-#include "Game/GameManager.h"
+#include "Rendering/ShaderProgram.h"
 #include "GameObjects/GameObject.h"
 
 

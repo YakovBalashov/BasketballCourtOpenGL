@@ -48,3 +48,5 @@ namespace Input
     constexpr unsigned char toggleFullscreen = 'f';
     constexpr unsigned char sprint = GLUT_KEY_SHIFT_L;
 }
+
+

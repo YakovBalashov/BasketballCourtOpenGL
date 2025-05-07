@@ -14,6 +14,7 @@ ShaderProgram::ShaderProgram(const char* vertexShaderFile, const char* fragmentS
     modelMatrixLocation = glGetUniformLocation(program, "model");
     viewMatrixLocation = glGetUniformLocation(program, "view");
     projectionMatrixLocation = glGetUniformLocation(program, "projection");
+    textureSamplerLocation = glGetUniformLocation(program, "textureSampler");
     glEnable(GL_DEPTH_TEST);
 }
 
@@ -32,6 +33,11 @@ void ShaderProgram::SetPVM(const glm::mat4& projectionMatrix, const glm::mat4& v
     glUniformMatrix4fv(projectionMatrixLocation, 1, GL_FALSE, glm::value_ptr(projectionMatrix));
     glUniformMatrix4fv(viewMatrixLocation, 1, GL_FALSE, glm::value_ptr(viewMatrix));
     glUniformMatrix4fv(modelMatrixLocation, 1, GL_FALSE, glm::value_ptr(modelMatrix));
+}
+
+void ShaderProgram::SetTextureSampler(GLuint textureID) const
+{
+    glUniform1i(textureSamplerLocation, textureID);
 }
 
 
