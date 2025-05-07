@@ -10,7 +10,8 @@ void GameEvents::OnRenderDisplay()
 
     auto projectionMatrix = glm::perspective(glm::radians(Camera::fovy), static_cast<float>(GameManager::instance->gameInfo.windowWidth) / GameManager::instance->gameInfo.windowHeight,
                                              Camera::nearPlane, Camera::farPlane);
-
+    
+    GameManager::instance->skybox->Render(viewMatrix, projectionMatrix);
     for (const auto& gameObject : GameManager::instance->gameObjects)
     {
         if (auto renderableObject = dynamic_cast<RenderableObject*>(gameObject.get()))
