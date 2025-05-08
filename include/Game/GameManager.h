@@ -34,7 +34,7 @@ public:
 
     std::vector<std::shared_ptr<GameObject>> gameObjects;
     
-    std::shared_ptr<PlayerCamera> playerCamera;
+    std::shared_ptr<PlayerCamera> currentCamera;
 
     std::shared_ptr<Skybox> skybox;
     
@@ -57,7 +57,10 @@ public:
 
     static void PrintGPUInfo();
 
+    void GenerateDebugGreed(); 
+
 private:
     std::shared_ptr<ShaderProgram> skyboxShader;
 
+    
 };

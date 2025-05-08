@@ -72,17 +72,17 @@ void PlayerInput::OnSpecialKeyRelease(int keyReleased, int mousePositionX, int m
 
 void PlayerInput::SetPlayerDirection(unsigned char input)
 {
-    GameManager::instance->playerCamera->SetMovementDirection(keyToDirection[input]);
+    GameManager::instance->currentCamera->SetMovementDirection(keyToDirection[input]);
 }
 
 void PlayerInput::ResetPlayerDirection(unsigned char input)
 {
-    GameManager::instance->playerCamera->StopMovementInDirection(keyToDirection[input]);
+    GameManager::instance->currentCamera->StopMovementInDirection(keyToDirection[input]);
 }
 
 void PlayerInput::ActivatePlayerSprint(unsigned char input)
 {
-    GameManager::instance->playerCamera->isSprinting = true;
+    GameManager::instance->currentCamera->isSprinting = true;
 }
 
 void PlayerInput::FinishGame(unsigned char input)
@@ -92,7 +92,7 @@ void PlayerInput::FinishGame(unsigned char input)
 
 void PlayerInput::DeactivatePlayerSprint(unsigned char input)
 {
-    GameManager::instance->playerCamera->isSprinting = false;
+    GameManager::instance->currentCamera->isSprinting = false;
 }
 
 void PlayerInput::ToggleFullscreen(unsigned char input)

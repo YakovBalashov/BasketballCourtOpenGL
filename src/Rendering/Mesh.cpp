@@ -68,7 +68,10 @@ Mesh::~Mesh()
 void Mesh::Render() const
 {
     if (textureID != 0)
+    {
+        glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, textureID);
+    }
     glBindVertexArray(vao);
     glDrawElements(GL_TRIANGLES, indexCount * 3, GL_UNSIGNED_INT, nullptr);
     glBindVertexArray(0);

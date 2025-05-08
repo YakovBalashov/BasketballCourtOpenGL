@@ -5,6 +5,9 @@
 class Texture
 {
 public:
+    std::string type;
+    std::string path;
+
     Texture(const std::string& filePath,
             GLint wrapS = GL_REPEAT,
             GLint wrapT = GL_REPEAT,
@@ -12,6 +15,7 @@ public:
             GLint magFilter = GL_LINEAR);
 
     ~Texture();
+
     GLuint getTextureID() const;
 
 private:

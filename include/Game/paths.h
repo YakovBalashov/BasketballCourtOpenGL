@@ -3,6 +3,13 @@
 namespace TexturePaths
 {
     constexpr auto blueSkybox = "assets/textures/skybox/blue";
+    constexpr auto red = "assets/textures/red.png";
+}
+
+namespace ModelPaths
+{
+    constexpr auto courtModel = "assets/models/court/Court.fbx";
+    constexpr auto basketballModel = "assets/models/basketball_common/basketballball.obj";
 }
 
 namespace ShaderPaths

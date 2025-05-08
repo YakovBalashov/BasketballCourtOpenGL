@@ -88,16 +88,25 @@ void GameManager::StartGame()
     InitializeShaders();
     InitializeModels();
 
+    GenerateDebugGreed();
 
     auto concreteTexture = std::make_shared<Texture>("assets/textures/concrete_a.jpg");
     auto concreteMesh = std::make_shared<Mesh>(groundVertices, groundIndices, concreteTexture->getTextureID());
     auto testMesh = std::make_shared<Mesh>(static_cast<const GLfloat*>(testVertices),static_cast<const GLuint*>(testIndices),5, 6);
+
+    auto courtModel = std::make_shared<Model>(ModelPaths::courtModel);
+    auto court = std::make_shared<ModelObject>(glm::vec3(0.0f, -1.5f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), courtModel, mainShader);
+
+    auto basketballModel = std::make_shared<Model>(ModelPaths::basketballModel);
+    auto basketball = std::make_shared<ModelObject>(glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(0.02f), basketballModel, mainShader);
     
     skybox = std::make_shared<Skybox>(skyboxShader);
-    playerCamera = std::make_shared<PlayerCamera>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f));
+    currentCamera = std::make_shared<PlayerCamera>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f));
 
-    gameObjects.push_back(playerCamera);
-    gameObjects.push_back(std::make_shared<MeshObject>(glm::vec3(0.0f, -2.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), concreteMesh, mainShader));
+    gameObjects.push_back(currentCamera);
+    gameObjects.push_back(basketball);
+    gameObjects.push_back(court);
+    // gameObjects.push_back(std::make_shared<MeshObject>(glm::vec3(0.0f, -2.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), concreteMesh, mainShader));
     gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(0.0f), glm::vec3(1.0f), testMesh, mainShader));
 
 
@@ -131,4 +140,11 @@ void GameManager::PrintGPUInfo()
     std::cout << "GPU Vendor:   " << vendor << '\n';
     std::cout << "GPU Renderer: " << renderer << '\n';
     std::cout << "OpenGL Version: " << version << '\n';
+}
+
+void GameManager::GenerateDebugGreed()
+{
+    // auto debugTexture = std::make_shared<Texture>("assets/textures/debug.jpg");
+    // auto concreteMesh = std::make_shared<Mesh>(groundVertices, groundIndices, concreteTexture->getTextureID());
+
 }

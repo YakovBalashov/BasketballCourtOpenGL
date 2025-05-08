@@ -24,7 +24,7 @@ namespace Camera
     constexpr float horizontalSensitivity = 0.05f;
     constexpr float fovy = 60.0f;
     constexpr float nearPlane = 0.1f;
-    constexpr float farPlane = 50.0f;
+    constexpr float farPlane = 100.0f;
 }
 
 namespace Ground
