@@ -27,7 +27,10 @@ public:
     static void ActivatePlayerSprint(unsigned char input);
 
     static void FinishGame(unsigned char input);
-    
+
     static void ToggleFullscreen(unsigned char input);
+
     static void DeactivatePlayerSprint(unsigned char input);
+    
+    static void CycleCamera(unsigned char input);
 };

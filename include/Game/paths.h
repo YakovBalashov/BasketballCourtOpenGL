@@ -10,6 +10,7 @@ namespace ModelPaths
 {
     constexpr auto courtModel = "assets/models/court/Court.fbx";
     constexpr auto basketballModel = "assets/models/basketball_common/basketballball.obj";
+    constexpr auto droneS = "assets/models/drone/SciFiDroid.obj";
 }
 
 namespace ShaderPaths

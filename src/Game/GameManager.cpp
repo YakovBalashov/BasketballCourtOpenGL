@@ -1,6 +1,8 @@
 ﻿#include "Game/GameManager.h"
 
 #include "Game/PlayerInput.h"
+#include "GameObjects/Drone.h"
+#include "GameObjects/Camera.h"
 #include "GameObjects/ModelObject.h"
 #include "GameObjects/Skybox.h"
 #include "GameObjects/TestObject.h"
@@ -68,6 +70,30 @@ void GameManager::InitializeGlut(int argc, char** argv)
     glutWMCloseFunc(FinalizeGame);
 }
 
+void GameManager::SetupCameras()
+{
+    playerCamera = std::make_shared<PlayerCamera>(glm::vec3(0.0f, 2.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f));
+    cameras.push_back(playerCamera);
+    gameObjects.push_back(playerCamera);
+
+    auto staticCameraA = std::make_shared<Camera>(glm::vec3(0.0f, 2.0f, 5.0f), glm::vec3(0.0f), glm::vec3(1.0f));
+    cameras.push_back(staticCameraA);
+    gameObjects.push_back(staticCameraA);
+
+    auto staticCameraB = std::make_shared<Camera>(glm::vec3(0.0f, 2.0f, -5.0f), glm::vec3(0.0f), glm::vec3(1.0f));
+    cameras.push_back(staticCameraB);
+    gameObjects.push_back(staticCameraB);
+    
+    auto droneModel = std::make_shared<Model>(ModelPaths::droneS);
+    auto drone = std::make_shared<Drone>(glm::vec3(0.0f, 4.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), droneModel, mainShader);
+    auto droneCamera = std::make_shared<Camera>(glm::vec3(0.0f, -0.2f, 0.7f), glm::vec3(0.0f), glm::vec3(1.0f));
+    drone->AddChild(droneCamera);
+    gameObjects.push_back(drone);
+    cameras.push_back(droneCamera);
+
+    currentCamera = cameras[currentCameraIndex];
+}
+
 void GameManager::InitializeFramework()
 {
     if (pgr::initialize(pgr::OGL_VER_MAJOR, pgr::OGL_VER_MINOR)) return;
@@ -88,31 +114,39 @@ void GameManager::StartGame()
     InitializeShaders();
     InitializeModels();
 
-    GenerateDebugGreed();
+    // GenerateDebugGrid();
+
+    SetupCameras();
 
     auto concreteTexture = std::make_shared<Texture>("assets/textures/concrete_a.jpg");
     auto concreteMesh = std::make_shared<Mesh>(groundVertices, groundIndices, concreteTexture->getTextureID());
     auto testMesh = std::make_shared<Mesh>(static_cast<const GLfloat*>(testVertices),static_cast<const GLuint*>(testIndices),5, 6);
 
     auto courtModel = std::make_shared<Model>(ModelPaths::courtModel);
-    auto court = std::make_shared<ModelObject>(glm::vec3(0.0f, -1.5f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), courtModel, mainShader);
-
+    auto court = std::make_shared<ModelObject>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), courtModel, mainShader);
+    gameObjects.push_back(court);
+    
     auto basketballModel = std::make_shared<Model>(ModelPaths::basketballModel);
-    auto basketball = std::make_shared<ModelObject>(glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(0.02f), basketballModel, mainShader);
+    auto basketball = std::make_shared<ModelObject>(glm::vec3(0.0f, -1.5f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), basketballModel, mainShader);
     
     skybox = std::make_shared<Skybox>(skyboxShader);
-    currentCamera = std::make_shared<PlayerCamera>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f));
 
-    gameObjects.push_back(currentCamera);
-    gameObjects.push_back(basketball);
-    gameObjects.push_back(court);
+    // gameObjects.push_back(currentCamera);
+    // gameObjects.push_back(basketball);
     // gameObjects.push_back(std::make_shared<MeshObject>(glm::vec3(0.0f, -2.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), concreteMesh, mainShader));
     gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(0.0f), glm::vec3(1.0f), testMesh, mainShader));
 
-
+    
+    
     gameInfo.cameraAzimuthAngle = 0.0f;
     gameInfo.cameraElevationAngle = 0.0f;
     glutMainLoop();
+}
+
+void GameManager::CycleCamera()
+{
+    currentCameraIndex = (currentCameraIndex + 1) % static_cast<int>(cameras.size());
+    currentCamera = cameras[currentCameraIndex];
 }
 
 void GameManager::InitializeShaders()
@@ -142,9 +176,17 @@ void GameManager::PrintGPUInfo()
     std::cout << "OpenGL Version: " << version << '\n';
 }
 
-void GameManager::GenerateDebugGreed()
+void GameManager::GenerateDebugGrid()
 {
-    // auto debugTexture = std::make_shared<Texture>("assets/textures/debug.jpg");
-    // auto concreteMesh = std::make_shared<Mesh>(groundVertices, groundIndices, concreteTexture->getTextureID());
+    auto debugTexture = std::make_shared<Texture>(TexturePaths::red);
+    auto debugMesh = std::make_shared<Mesh>(groundVertices, groundIndices, debugTexture->getTextureID());
 
+    for (float x = -DebugGrid::size; x <= DebugGrid::size; x += DebugGrid::step)
+    {
+        for (float y = -DebugGrid::size; y <= DebugGrid::size; y += DebugGrid::step)
+        {
+            auto debugObject = std::make_shared<MeshObject>(glm::vec3(x, 0.0f, y), glm::vec3(0.0f), glm::vec3(0.05f), debugMesh, mainShader);
+            gameObjects.push_back(debugObject);
+        }
+    }
 }

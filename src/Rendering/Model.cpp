@@ -8,9 +8,8 @@ Model::Model(const std::string& path)
 {
     directory = path.substr(0, path.find_last_of('/'));
     Assimp::Importer importer;
-    importer.SetPropertyInteger(AI_CONFIG_PP_PTV_NORMALIZE, 1);
     const aiScene* scene = importer.ReadFile(path,
-        aiProcess_Triangulate | aiProcess_PreTransformVertices | aiProcess_GenNormals | aiProcess_JoinIdenticalVertices);
+        aiProcess_Triangulate | aiProcess_GenNormals | aiProcess_JoinIdenticalVertices);
 
     if (!scene || !scene->mRootNode || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE) {
         std::cerr << "Assimp load error: " << importer.GetErrorString() << std::endl;

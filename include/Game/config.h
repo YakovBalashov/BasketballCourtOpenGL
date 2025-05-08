@@ -17,7 +17,7 @@ namespace Scene
     constexpr float depth = 1.0f;
 }
 
-namespace Camera
+namespace CameraConfig
 {
     constexpr float maxElevation = 45.0f;
     constexpr float verticalSensitivity = 0.05f;
@@ -27,9 +27,16 @@ namespace Camera
     constexpr float farPlane = 100.0f;
 }
 
+namespace DebugGrid
+{
+    constexpr float size = 0.5f;
+    constexpr float step = 0.5f;
+}
+
+
 namespace Ground
 {
-    constexpr float size = 50.0f;
+    constexpr float size = 0.1f;
 }
 
 namespace Player
@@ -46,6 +53,8 @@ namespace Input
     constexpr unsigned char moveRight = 'd';
     constexpr unsigned char exitGame = 27;
     constexpr unsigned char toggleFullscreen = 'f';
+    constexpr unsigned char toggleDebugGrid = GLUT_KEY_F3;
+    constexpr unsigned char cycleCamera = GLUT_KEY_F5;
     constexpr unsigned char sprint = GLUT_KEY_SHIFT_L;
 }
 

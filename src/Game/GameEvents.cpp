@@ -8,10 +8,10 @@ void GameEvents::OnRenderDisplay()
 
     auto viewMatrix = GameManager::instance->currentCamera->GetViewMatrix();
 
-    auto projectionMatrix = glm::perspective(glm::radians(Camera::fovy),
+    auto projectionMatrix = glm::perspective(glm::radians(CameraConfig::fovy),
                                              static_cast<float>(GameManager::instance->gameInfo.windowWidth) /
                                              static_cast<float>(GameManager::instance->gameInfo.windowHeight),
-                                             Camera::nearPlane, Camera::farPlane);
+                                             CameraConfig::nearPlane, CameraConfig::farPlane);
 
     GameManager::instance->skybox->Render(viewMatrix, projectionMatrix);
     for (const auto& gameObject : GameManager::instance->gameObjects)
@@ -54,7 +54,7 @@ void GameEvents::OnPassiveMouseMotion(int mousePositionX, int mousePositionY)
         gameInfo.windowWidth / 2)
         return;
 
-    GameManager::instance->currentCamera->UpdateOrientation(mousePositionX, mousePositionY);
+    GameManager::instance->playerCamera->UpdateOrientation(mousePositionX, mousePositionY);
 
     glutWarpPointer(GameManager::instance->gameInfo.windowWidth / 2, GameManager::instance->gameInfo.windowHeight / 2);
 

@@ -21,6 +21,7 @@ std::unordered_map<unsigned char, void (*)(unsigned char)> PlayerInput::keyRelea
 
 std::unordered_map<unsigned char, void (*)(unsigned char)> PlayerInput::specialKeyPressToMethod{
     std::pair<const unsigned char, KeyMethod>{Input::sprint, &PlayerInput::ActivatePlayerSprint},
+    std::pair<const unsigned char, KeyMethod>{Input::cycleCamera, &PlayerInput::CycleCamera},
 };
 
 std::unordered_map<unsigned char, void (*)(unsigned char)> PlayerInput::specialKeyReleaseToMethod{
@@ -36,8 +37,6 @@ std::unordered_map<unsigned char, glm::vec2> PlayerInput::keyToDirection = {
     {'a', {0.0f, -1.0f}},
     {'d', {0.0f, 1.0f}}
 };
-
-
 
 void PlayerInput::OnKeyPress(unsigned char keyPressed, int mousePositionX, int mousePositionY)
 {
@@ -72,17 +71,17 @@ void PlayerInput::OnSpecialKeyRelease(int keyReleased, int mousePositionX, int m
 
 void PlayerInput::SetPlayerDirection(unsigned char input)
 {
-    GameManager::instance->currentCamera->SetMovementDirection(keyToDirection[input]);
+    GameManager::instance->playerCamera->SetMovementDirection(keyToDirection[input]);
 }
 
 void PlayerInput::ResetPlayerDirection(unsigned char input)
 {
-    GameManager::instance->currentCamera->StopMovementInDirection(keyToDirection[input]);
+    GameManager::instance->playerCamera->StopMovementInDirection(keyToDirection[input]);
 }
 
 void PlayerInput::ActivatePlayerSprint(unsigned char input)
 {
-    GameManager::instance->currentCamera->isSprinting = true;
+    GameManager::instance->playerCamera->isSprinting = true;
 }
 
 void PlayerInput::FinishGame(unsigned char input)
@@ -92,7 +91,12 @@ void PlayerInput::FinishGame(unsigned char input)
 
 void PlayerInput::DeactivatePlayerSprint(unsigned char input)
 {
-    GameManager::instance->currentCamera->isSprinting = false;
+    GameManager::instance->playerCamera->isSprinting = false;
+}
+
+void PlayerInput::CycleCamera(unsigned char input)
+{
+    GameManager::instance->CycleCamera();
 }
 
 void PlayerInput::ToggleFullscreen(unsigned char input)

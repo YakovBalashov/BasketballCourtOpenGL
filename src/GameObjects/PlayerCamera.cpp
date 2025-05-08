@@ -3,13 +3,16 @@
 
 #include "Game/GameUtils.h"
 
+static float elevationUpperBound = GameUtils::Repeat(CameraConfig::maxElevation, 360.0f);
+static float elevationLowerBound = GameUtils::Repeat(-CameraConfig::maxElevation, 360.0f);
+
 void PlayerCamera::Update()
 {
     if (relativeCurrentMovementDirection == glm::vec2(0.0f)) return;
     
     auto currentSpeed = isSprinting ? Player::sprintSpeed : Player::normalSpeed;
 
-    float rotationYRadians = glm::radians(rotation.y);
+    float rotationYRadians = glm::radians(GetRotation().y);
 
     glm::vec3 forwardAxis = glm::normalize(glm::vec3(sin(rotationYRadians), 0.0f, cos(rotationYRadians)));
     glm::vec3 rightAxis = glm::normalize(glm::cross(forwardAxis, glm::vec3(0.0f, 1.0f, 0.0f)));
@@ -19,9 +22,9 @@ void PlayerCamera::Update()
         rightAxis * relativeCurrentMovementDirection.y
     );
 
-    auto newPosition = position + currentMovementDirection * currentSpeed * GameManager::instance->gameInfo.deltaTime;
-    if (fabs(newPosition.x) >= Ground::size || fabs(newPosition.z) >= Ground::size) return;
-    position = newPosition;
+    auto newPosition = GetPosition() + currentMovementDirection * currentSpeed * GameManager::instance->gameInfo.deltaTime;
+    // if (fabs(newPosition.x) >= Ground::size || fabs(newPosition.z) >= Ground::size) return;
+    SetPosition(newPosition);
 }
 
 void PlayerCamera::UpdateOrientation(int mousePositionX, int mousePositionY)
@@ -29,35 +32,22 @@ void PlayerCamera::UpdateOrientation(int mousePositionX, int mousePositionY)
     const float halfWindowHeight = static_cast<float>(GameManager::instance->gameInfo.windowHeight) / 2.0f;
     const float halfWindowWidth = static_cast<float>(GameManager::instance->gameInfo.windowWidth) / 2.0f;
 
-    const float deltaCameraElevationAngle = -Camera::verticalSensitivity * (static_cast<float>(mousePositionY) -
+    const float deltaCameraElevationAngle = -CameraConfig::verticalSensitivity * (static_cast<float>(mousePositionY) -
         halfWindowHeight);
-    const float deltaCameraAzimuthAngle = -Camera::horizontalSensitivity * (static_cast<float>(mousePositionX) -
+    const float deltaCameraAzimuthAngle = -CameraConfig::horizontalSensitivity * (static_cast<float>(mousePositionX) -
         halfWindowWidth);
 
-    if (fabs(rotation.x + deltaCameraElevationAngle) < Camera::maxElevation)
+
+    auto newRotation = GetRotation();
+    auto newRotationX = GameUtils::Repeat(newRotation.x + deltaCameraElevationAngle, 360.0f);
+    if (newRotationX < elevationUpperBound || newRotationX > elevationLowerBound)
     {
-        rotation.x += deltaCameraElevationAngle;
+        newRotation.x = newRotationX;
     }
-
-    rotation.y = GameUtils::Repeat(rotation.y + deltaCameraAzimuthAngle, 360.0f);
-}
-
-glm::mat4 PlayerCamera::GetViewMatrix() const
-{
-    auto direction = glm::vec3(
-        cos(glm::radians(rotation.x)) * sin(glm::radians(rotation.y)),
-        sin(glm::radians(rotation.x)),
-        cos(glm::radians(rotation.x)) * cos(glm::radians(rotation.y))
-    );
-    auto rotationAxis = glm::cross(direction, vectorUp);
-    auto rotationMatrix = glm::mat3(glm::rotate(glm::mat4(1.0f), glm::radians(rotation.x), rotationAxis));
-
-    auto rotatedView = rotationMatrix * direction;
-    auto rotatedUp = rotationMatrix * vectorUp;
-
-    auto cameraCenter = position + rotatedView;
-
-    return lookAt(position, cameraCenter, rotatedUp);
+    
+    // newRotation.y = GameUtils::Repeat(newRotation.y + deltaCameraAzimuthAngle, 360.0f);
+    newRotation.y += deltaCameraAzimuthAngle;
+    SetRotation(newRotation);
 }
 
 void PlayerCamera::SetMovementDirection(const glm::vec2& direction)

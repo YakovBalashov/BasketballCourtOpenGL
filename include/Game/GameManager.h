@@ -33,11 +33,17 @@ public:
     std::shared_ptr<ShaderProgram> mainShader;
 
     std::vector<std::shared_ptr<GameObject>> gameObjects;
+
+    std::vector<std::shared_ptr<Camera>> cameras;
     
-    std::shared_ptr<PlayerCamera> currentCamera;
+    std::shared_ptr<Camera> currentCamera;
+
+    int currentCameraIndex = 0;
+
+    std::shared_ptr<PlayerCamera> playerCamera;
 
     std::shared_ptr<Skybox> skybox;
-    
+
     static std::unique_ptr<GameManager> instance;
 
 
@@ -47,7 +53,11 @@ public:
 
     static void InitializeGlut(int argc, char** argv);
 
+    void SetupCameras();
+    
     void StartGame();
+    
+    void CycleCamera();
 
     static void InitializeShaders();
 
@@ -57,7 +67,7 @@ public:
 
     static void PrintGPUInfo();
 
-    void GenerateDebugGreed(); 
+    void GenerateDebugGrid(); 
 
 private:
     std::shared_ptr<ShaderProgram> skyboxShader;
