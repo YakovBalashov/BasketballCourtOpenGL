@@ -5,7 +5,6 @@ Texture::Texture(const std::string& filePath, GLint wrapS, GLint wrapT, GLint mi
     textureID = pgr::createTexture(filePath);
     glBindTexture(GL_TEXTURE_2D, textureID);
     
-
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapS);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter);

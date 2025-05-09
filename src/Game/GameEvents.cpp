@@ -8,6 +8,9 @@ void GameEvents::OnRenderDisplay()
 
     auto viewMatrix = GameManager::instance->currentCamera->GetViewMatrix();
 
+    GameManager::instance->mainShader->UseProgram();
+    GameManager::instance->mainShader->SetCameraPosition(GameManager::instance->currentCamera->GetPosition());
+
     auto projectionMatrix = glm::perspective(glm::radians(CameraConfig::fovy),
                                              static_cast<float>(GameManager::instance->gameInfo.windowWidth) /
                                              static_cast<float>(GameManager::instance->gameInfo.windowHeight),
@@ -44,8 +47,8 @@ void GameEvents::OnTimer(int)
         gameObject->Update();
     }
 
-    glutTimerFunc(33, OnTimer, 0);
     glutPostRedisplay();
+    glutTimerFunc(33, OnTimer, 0);
 }
 
 void GameEvents::OnPassiveMouseMotion(int mousePositionX, int mousePositionY)

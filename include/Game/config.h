@@ -17,6 +17,12 @@ namespace Scene
     constexpr float depth = 1.0f;
 }
 
+namespace LightsConfig
+{
+    constexpr float ambientIntensity = 0.5f;
+    extern glm::vec3 ambientColor;
+}
+
 namespace CameraConfig
 {
     constexpr float maxElevation = 45.0f;
@@ -42,7 +48,7 @@ namespace Ground
 namespace Player
 {
     constexpr float normalSpeed = 5.0f;
-    constexpr float sprintSpeed = 8.0f;
+    constexpr float sprintSpeed = 10.0f;
 }
 
 namespace Input

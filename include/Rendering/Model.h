@@ -6,15 +6,6 @@
 #include "Mesh.h"
 #include "Texture.h"
 
-struct Material {
-    glm::vec3 ambientColor;
-    glm::vec3 diffuseColor;
-    glm::vec3 specularColor;
-    float shininess;
-    std::vector<Texture> textures;
-
-    Material() : ambientColor(0.1f), diffuseColor(0.7f), specularColor(0.5f), shininess(32.0f) {}
-};
 
 class Model
 {
