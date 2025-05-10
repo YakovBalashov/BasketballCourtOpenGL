@@ -18,11 +18,14 @@ std::unordered_map<unsigned char, void (*)(unsigned char)> PlayerInput::keyRelea
     std::pair<const unsigned char, KeyMethod>{Input::exitGame, &PlayerInput::FinishGame},
     std::pair<const unsigned char, KeyMethod>{Input::toggleFullscreen, &PlayerInput::ToggleFullscreen},
     std::pair<const unsigned char, KeyMethod>{Input::toggleFlashLight, &PlayerInput::ToggleFlashLight},
+    std::pair<const unsigned char, KeyMethod>{Input::togglePickingMode, &PlayerInput::TogglePickingMode},
 };
 
 std::unordered_map<unsigned char, void (*)(unsigned char)> PlayerInput::specialKeyPressToMethod{
     std::pair<const unsigned char, KeyMethod>{Input::sprint, &PlayerInput::ActivatePlayerSprint},
     std::pair<const unsigned char, KeyMethod>{Input::cycleCamera, &PlayerInput::CycleCamera},
+    std::pair<const unsigned char, KeyMethod>{Input::nextCamera, &PlayerInput::NextCamera},
+    std::pair<const unsigned char, KeyMethod>{Input::previousCamera, &PlayerInput::PreviousCamera},
 };
 
 std::unordered_map<unsigned char, void (*)(unsigned char)> PlayerInput::specialKeyReleaseToMethod{
@@ -98,13 +101,38 @@ void PlayerInput::DeactivatePlayerSprint(unsigned char input)
 
 void PlayerInput::CycleCamera(unsigned char input)
 {
-    GameManager::instance->CycleCamera();
+    GameManager::instance->ChangeActiveCamera();
 }
+
 
 void PlayerInput::ToggleFlashLight(unsigned char input)
 {
     isFlashLightOn = !isFlashLightOn;
     GameManager::instance->mainShader->SetFlashLightState(isFlashLightOn);
+}
+
+void PlayerInput::NextCamera(unsigned char input)
+{
+    GameManager::instance->ChangeActiveCamera(1);
+}
+
+void PlayerInput::PreviousCamera(unsigned char input)
+{
+    GameManager::instance->ChangeActiveCamera(-1);
+}
+
+void PlayerInput::TogglePickingMode(unsigned char input)
+{
+    auto pickingMode = !GameManager::instance->gameInfo.isPickingMode;
+    if (pickingMode)
+        glutSetCursor(GLUT_CURSOR_FULL_CROSSHAIR);
+    else
+    {
+        glutSetCursor(GLUT_CURSOR_NONE);
+        glutWarpPointer(GameManager::instance->gameInfo.windowWidth / 2, GameManager::instance->gameInfo.windowHeight / 2);
+    }
+
+    GameManager::instance->gameInfo.isPickingMode = pickingMode;
 }
 
 void PlayerInput::ToggleFullscreen(unsigned char input)

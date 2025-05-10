@@ -16,6 +16,14 @@ public:
     static void OnTimer(int);
 
     static void OnPassiveMouseMotion(int mousePositionX, int mousePositionY);
+    
+    static glm::vec3 GetMouseRayDirection(int positionX, int positionY);
+
+    static void OnMouseAction(int button, int state, int positionX, int positionY);
+
+    static bool IsPassingTrough(glm::vec3 mouseRayDirection, glm::vec3 cameraPosition,
+                                const std::vector<std::shared_ptr<GameObject>>::value_type& gameObject);
+
 
     // static void OnKeyPress(unsigned char keyPressed, int mouseX, int mouseY);
 };

@@ -20,20 +20,19 @@ public:
     {
         int windowWidth;
         int windowHeight;
-
-        float cameraElevationAngle;
-        float cameraAzimuthAngle;
-
-        bool gameOver;
-
+        
         float currentTime;
         float deltaTime;
+        
+        bool isPickingMode = false;
     } gameInfo;
 
     std::shared_ptr<ShaderProgram> mainShader;
     std::shared_ptr<ShaderProgram> colorShader;
 
     std::vector<std::shared_ptr<GameObject>> gameObjects;
+
+    std::vector<std::shared_ptr<GameObject>> interactableObjects;
     
     std::vector<std::shared_ptr<Camera>> cameras;
     std::shared_ptr<Camera> currentCamera;
@@ -55,7 +54,7 @@ public:
 
     void StartGame();
 
-    void CycleCamera();
+    void ChangeActiveCamera(int direction=1);
 
     static void InitializeShaders();
 

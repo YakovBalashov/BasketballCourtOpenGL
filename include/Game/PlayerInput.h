@@ -34,6 +34,12 @@ public:
     static void DeactivatePlayerSprint(unsigned char input);
     
     static void CycleCamera(unsigned char input);
-    
+
     static void ToggleFlashLight(unsigned char input);
+    
+    static void NextCamera(unsigned char input);
+    
+    static void PreviousCamera(unsigned char input);
+    
+    static void TogglePickingMode(unsigned char input);
 };

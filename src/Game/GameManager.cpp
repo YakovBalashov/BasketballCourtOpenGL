@@ -5,6 +5,7 @@
 #include "GameObjects/Drone.h"
 #include "GameObjects/Camera.h"
 #include "GameObjects/ModelObject.h"
+#include "GameObjects/PointLight.h"
 #include "GameObjects/Skybox.h"
 #include "GameObjects/TestObject.h"
 #include "Rendering/DebugMesh.h"
@@ -36,6 +37,7 @@ void GameManager::InitializeGlut(int argc, char** argv)
     glutSpecialFunc(PlayerInput::OnSpecialKeyPress);
     glutSpecialUpFunc(PlayerInput::OnSpecialKeyRelease);
     glutPassiveMotionFunc(GameEvents::OnPassiveMouseMotion);
+    glutMouseFunc(GameEvents::OnMouseAction);
     glutSetCursor(GLUT_CURSOR_NONE);
 
     glutTimerFunc(33, GameEvents::OnTimer, 0);
@@ -48,7 +50,8 @@ void GameManager::SetupCameras()
     cameras.push_back(playerCamera);
     gameObjects.push_back(playerCamera);
 
-    auto staticCameraA = std::make_shared<Camera>(glm::vec3(0.0f, 2.0f, 5.0f), glm::vec3(0.0f), glm::vec3(1.0f));
+    auto staticCameraA = std::make_shared<Camera>(glm::vec3(7.0f, 50.0f, 0.0f), glm::vec3(315.0f, 0.0f, 0.0f),
+                                                  glm::vec3(1.0f));
     cameras.push_back(staticCameraA);
     gameObjects.push_back(staticCameraA);
 
@@ -99,15 +102,17 @@ void GameManager::StartGame()
     auto shinyMaterial = std::make_shared<Material>(glm::vec3(1.0f), glm::vec3(0.7f), glm::vec3(1.0f), 32.0f);
     auto diffuseMaterial = std::make_shared<Material>(glm::vec3(0.5f), glm::vec3(0.7f), glm::vec3(0.0f), 32.0f);
 
+    /*
     auto courtModel = std::make_shared<Model>(ModelPaths::courtModel);
     auto court = std::make_shared<ModelObject>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f),
                                                courtModel, mainShader, defaultMaterial);
     gameObjects.push_back(court);
-
+    */
+    
     auto streetLampModel = std::make_shared<Model>(ModelPaths::streetLight);
     auto streetLamp = std::make_shared<ModelObject>(glm::vec3(5.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f),
                                                     streetLampModel, mainShader, defaultMaterial);
-    gameObjects.push_back(streetLamp);    
+    gameObjects.push_back(streetLamp);
 
     auto cubeMesh = std::make_shared<Mesh>(MeshVertices::cubeVertices, MeshVertices::cubeIndices,
                                            redTexture->getTextureID());
@@ -120,8 +125,11 @@ void GameManager::StartGame()
     gameObjects.push_back(std::make_shared<MeshObject>(glm::vec3(2.1f, 0.6f, -32.2f), glm::vec3(0.0f), glm::vec3(1.2f),
                                                        cubeMesh, mainShader, diffuseMaterial));
 
-    auto pointLight = std::make_shared<MeshObject>(glm::vec3(3.5f, 0.5f, -34.2f), glm::vec3(0.0f), glm::vec3(0.2f),
+    auto pointLight = std::make_shared<PointLight>(glm::vec3(3.5f, 0.5f, -34.2f), glm::vec3(0.0f), glm::vec3(0.2f),
                                                    lightCubeMesh, colorShader, shinyMaterial);
+
+    interactableObjects.push_back(pointLight);
+    
     gameObjects.push_back(pointLight);
 
     GameUtils::GenerateGrid(DebugGrid::size, DebugGrid::step);
@@ -143,14 +151,13 @@ void GameManager::StartGame()
                                         LightsConfig::flashLightDiffuseIntensity,
                                         LightsConfig::flashLightSpecularIntensity, LightsConfig::flashLightCutOff);
 
-    gameInfo.cameraAzimuthAngle = 0.0f;
-    gameInfo.cameraElevationAngle = 0.0f;
     glutMainLoop();
 }
 
-void GameManager::CycleCamera()
+void GameManager::ChangeActiveCamera(int direction)
 {
-    currentCameraIndex = (currentCameraIndex + 1) % static_cast<int>(cameras.size());
+    currentCameraIndex = static_cast<int>(GameUtils::Repeat(
+        static_cast<float>(currentCameraIndex) + static_cast<float>(direction), static_cast<float>(cameras.size())));
     currentCamera = cameras[currentCameraIndex];
 }
 

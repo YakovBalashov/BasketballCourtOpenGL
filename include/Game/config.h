@@ -78,9 +78,12 @@ namespace Input
     constexpr unsigned char moveRight = 'd';
     constexpr unsigned char exitGame = 27;
     constexpr unsigned char toggleFullscreen = 'f';
-    constexpr unsigned char toggleFlashLight = 'e';
+    constexpr unsigned char toggleFlashLight = 'l';
+    constexpr unsigned char togglePickingMode = 'e';
     constexpr unsigned char toggleDebugGrid = GLUT_KEY_F3;
     constexpr unsigned char cycleCamera = GLUT_KEY_F5;
+    constexpr unsigned char nextCamera = GLUT_KEY_RIGHT;
+    constexpr unsigned char previousCamera = GLUT_KEY_LEFT;
     constexpr unsigned char sprint = GLUT_KEY_SHIFT_L;
 }
 

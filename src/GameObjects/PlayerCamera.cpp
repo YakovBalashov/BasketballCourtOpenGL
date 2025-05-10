@@ -1,6 +1,7 @@
 ﻿#include <GameObjects/PlayerCamera.h>
 #include <Game/GameManager.h>
 
+#include "Game/CollisionManager.h"
 #include "Game/GameUtils.h"
 
 static float elevationUpperBound = GameUtils::Repeat(CameraConfig::maxElevation, 360.0f);
@@ -24,7 +25,7 @@ void PlayerCamera::Update()
 
     auto newPosition = GetPosition() + currentMovementDirection * currentSpeed * GameManager::instance->gameInfo.deltaTime;
     // if (fabs(newPosition.x) >= Ground::size || fabs(newPosition.z) >= Ground::size) return;
-    // TODO collisions
+    if (CollisionManager::IsColliding(GetPosition(), newPosition, radius)) return; 
     SetPosition(newPosition);
 }
 
