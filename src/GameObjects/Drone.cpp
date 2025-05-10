@@ -23,7 +23,6 @@ void Drone::Update()
     SetPosition(GetCurrentPosition(currentAngle));
     SetRotation(GetCurrentRotation(currentAngle));
     GameManager::instance->mainShader->UseProgram();
-    GameManager::instance->mainShader->SetDirectionalLightPosition(GetPosition());
 }
 
 glm::vec3 Drone::GetCurrentPosition(float angle) const

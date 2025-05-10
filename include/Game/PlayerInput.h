@@ -10,7 +10,8 @@ public:
     static std::unordered_map<unsigned char, void (*)(unsigned char)> keyReleaseToMethod;
     static std::unordered_map<unsigned char, void (*)(unsigned char)> specialKeyPressToMethod;
     static std::unordered_map<unsigned char, void(*)(unsigned char)> specialKeyReleaseToMethod;
-    static bool IsFullscreen;
+    static bool isFullscreen;
+    static bool isFlashLightOn;
 
     static void OnKeyPress(unsigned char keyPressed, int mousePositionX, int mousePositionY);
 
@@ -33,4 +34,6 @@ public:
     static void DeactivatePlayerSprint(unsigned char input);
     
     static void CycleCamera(unsigned char input);
+    
+    static void ToggleFlashLight(unsigned char input);
 };

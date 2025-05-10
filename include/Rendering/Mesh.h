@@ -17,9 +17,9 @@ public:
     
     ~Mesh();
 
-    void Render() const;
+    virtual void Render();
 
-private:
+protected:
     GLuint vao;
     GLuint vbo;
     GLuint ebo;

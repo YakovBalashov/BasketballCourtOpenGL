@@ -8,6 +8,6 @@ class GameUtils
 public:
     static float Repeat(float value, float max);
 
-    static std::pair<std::vector<Vertex>, std::vector<GLuint>> GenerateGridLines(
-        int divisionsX, int divisionsZ, float spacing, float yLevel);
+    static void GenerateGrid(
+        float size, float spacing);
 };

@@ -7,41 +7,11 @@
 #include "GameObjects/ModelObject.h"
 #include "GameObjects/Skybox.h"
 #include "GameObjects/TestObject.h"
+#include "Rendering/DebugMesh.h"
 #include "Rendering/Texture.h"
 #include "Rendering/Material.h"
 
-
 std::unique_ptr<GameManager> GameManager::instance = nullptr;
-
-GLfloat testVertices[] = {
-    -0.5f, 0.0f, 0.5f,
-    -0.5f, 0.0f, -0.5f,
-    0.5f, 0.0f, -0.5f,
-    0.5f, 0.0f, 0.5f,
-    0.0f, 0.8f, 0.0f,
-};
-
-GLuint testIndices[] =
-{
-    0, 1, 2,
-    0, 2, 3,
-    0, 1, 4,
-    1, 2, 4,
-    2, 3, 4,
-    3, 0, 4
-};
-
-std::vector<Vertex> groundVertices = {
-    {{-Ground::size, 0.0f, -Ground::size}, {0.0f, 1.0f, 0.0f}, {0.0f, 0.0f}},  // Bottom-left
-    {{ Ground::size, 0.0f, -Ground::size}, {0.0f, 1.0f, 0.0f}, {Ground::size, 0.0f}}, // Bottom-right
-    {{ Ground::size, 0.0f,  Ground::size}, {0.0f, 1.0f, 0.0f}, {Ground::size, Ground::size}}, // Top-right
-    {{-Ground::size, 0.0f,  Ground::size}, {0.0f, 1.0f, 0.0f}, {0.0f, Ground::size}}, // Top-left
-};
-
-std::vector<GLuint> groundIndices = {
-    0, 1, 2,
-    0, 2, 3
-};
 
 GameManager::GameManager()
 {
@@ -88,7 +58,7 @@ void GameManager::SetupCameras()
 
     auto droneModel = std::make_shared<Model>(ModelPaths::droneS);
     auto drone = std::make_shared<Drone>(glm::vec3(1.0f), droneModel, mainShader, std::make_shared<Material>(),
-        glm::vec3(0.0f, 4.0f, 0.0f), 10.0f, 10.0f);
+                                         glm::vec3(0.0f, 4.0f, 0.0f), 10.0f, 10.0f);
     auto droneCamera = std::make_shared<Camera>(glm::vec3(0.0f, -0.2f, 0.7f), glm::vec3(0.0f), glm::vec3(1.0f));
     drone->AddChild(droneCamera);
     gameObjects.push_back(drone);
@@ -109,7 +79,7 @@ void GameManager::StartGame()
     glutWarpPointer(GameManager::instance->gameInfo.windowWidth / 2, GameManager::instance->gameInfo.windowHeight / 2);
 
     // initialize random seed
-    srand((unsigned int)time(NULL));
+    // srand((unsigned int)time(NULL));
 
     // initialize OpenGL
     glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
@@ -118,46 +88,61 @@ void GameManager::StartGame()
     InitializeShaders();
     InitializeModels();
 
-    // GenerateDebugGrid();
 
     SetupCameras();
 
     auto concreteTexture = std::make_shared<Texture>("assets/textures/concrete_a.jpg");
     auto redTexture = std::make_shared<Texture>(TexturePaths::red);
-    auto concreteMesh = std::make_shared<Mesh>(groundVertices, groundIndices, concreteTexture->getTextureID());
-    auto testMesh = std::make_shared<Mesh>(static_cast<const GLfloat*>(testVertices),static_cast<const GLuint*>(testIndices),5, 6);
+    auto whiteTexture = std::make_shared<Texture>(TexturePaths::white);
 
     auto defaultMaterial = std::make_shared<Material>();
-    auto shinyMaterial = std::make_shared<Material>(glm::vec3(0.3f), glm::vec3(1.0f), glm::vec3(1.0f), 32.0f);
-    
-    auto courtModel = std::make_shared<Model>(ModelPaths::courtModel);
-    auto court = std::make_shared<ModelObject>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), courtModel, mainShader, defaultMaterial);
-    gameObjects.push_back(court);
-    
-    auto basketballModel = std::make_shared<Model>(ModelPaths::basketballModel);
-    auto basketball = std::make_shared<ModelObject>(glm::vec3(0.0f, -1.5f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), basketballModel, mainShader, defaultMaterial);
+    auto shinyMaterial = std::make_shared<Material>(glm::vec3(1.0f), glm::vec3(0.7f), glm::vec3(1.0f), 32.0f);
+    auto diffuseMaterial = std::make_shared<Material>(glm::vec3(0.5f), glm::vec3(0.7f), glm::vec3(0.0f), 32.0f);
 
-    auto portalCubeModel = std::make_shared<Model>(ModelPaths::portalCube);
-    auto portalCube = std::make_shared<ModelObject>(glm::vec3(2.0f, 1.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f),
-                                                    portalCubeModel, mainShader, defaultMaterial);
-    gameObjects.push_back(portalCube);
-    
-    auto cubeMesh = std::make_shared<Mesh>(MeshVertices::cubeVertices, MeshVertices::cubeIndices, redTexture->getTextureID());
-    auto cube = std::make_shared<MeshObject>(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), cubeMesh, mainShader, shinyMaterial);
-    gameObjects.push_back(cube);
-    
+    auto courtModel = std::make_shared<Model>(ModelPaths::courtModel);
+    auto court = std::make_shared<ModelObject>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f),
+                                               courtModel, mainShader, defaultMaterial);
+    gameObjects.push_back(court);
+
+    auto streetLampModel = std::make_shared<Model>(ModelPaths::streetLight);
+    auto streetLamp = std::make_shared<ModelObject>(glm::vec3(5.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f),
+                                                    streetLampModel, mainShader, defaultMaterial);
+    gameObjects.push_back(streetLamp);    
+
+    auto cubeMesh = std::make_shared<Mesh>(MeshVertices::cubeVertices, MeshVertices::cubeIndices,
+                                           redTexture->getTextureID());
+    auto lightCubeMesh = std::make_shared<Mesh>(MeshVertices::cubeVertices, MeshVertices::cubeIndices,
+                                                whiteTexture->getTextureID());
+    gameObjects.push_back(std::make_shared<MeshObject>(glm::vec3(2.0f, 0.5f, -35.8f), glm::vec3(0.0f), glm::vec3(1.0f),
+                                                       cubeMesh, mainShader, shinyMaterial));
+    gameObjects.push_back(std::make_shared<MeshObject>(glm::vec3(2.0f, 0.8f, -34.0f), glm::vec3(0.0f), glm::vec3(1.5f),
+                                                       cubeMesh, mainShader, defaultMaterial));
+    gameObjects.push_back(std::make_shared<MeshObject>(glm::vec3(2.1f, 0.6f, -32.2f), glm::vec3(0.0f), glm::vec3(1.2f),
+                                                       cubeMesh, mainShader, diffuseMaterial));
+
+    auto pointLight = std::make_shared<MeshObject>(glm::vec3(3.5f, 0.5f, -34.2f), glm::vec3(0.0f), glm::vec3(0.2f),
+                                                   lightCubeMesh, colorShader, shinyMaterial);
+    gameObjects.push_back(pointLight);
+
+    GameUtils::GenerateGrid(DebugGrid::size, DebugGrid::step);
+
     skybox = std::make_shared<Skybox>(skyboxShader);
 
-    // gameObjects.push_back(currentCamera);
-    // gameObjects.push_back(basketball);
-    // gameObjects.push_back(std::make_shared<MeshObject>(glm::vec3(0.0f, -2.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f), concreteMesh, mainShader));
-    gameObjects.push_back(std::make_shared<TestObject>(glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(0.0f), glm::vec3(1.0f), testMesh, mainShader, defaultMaterial));
-
     mainShader->UseProgram();
-    mainShader->SetAmbientLight(LightsConfig::ambientColor, LightsConfig::ambientIntensity);
-    mainShader->SetDirectionalLightColor(glm::vec3(0.3f));
-    
-    
+    mainShader->SetSunParameters(LightsConfig::sunDirection, LightsConfig::sunColor,
+                                 LightsConfig::sunAmbientIntensity, LightsConfig::sunDiffuseIntensity,
+                                 LightsConfig::sunSpecularIntensity);
+    mainShader->SetPointLightParameters(pointLight->GetPosition(), LightsConfig::pointLightColor,
+                                        LightsConfig::pointLightAmbientIntensity,
+                                        LightsConfig::pointLightDiffuseIntensity,
+                                        LightsConfig::pointLightSpecularIntensity, LightsConfig::pointLightConstant,
+                                        LightsConfig::pointLightLinear, LightsConfig::pointLightQuadratic);
+    mainShader->SetFlashLightParameters(glm::vec3(0.0f, 3.0f, 0.0f), LightsConfig::flashLightDirection,
+                                        LightsConfig::flashLightColor,
+                                        LightsConfig::flashLightAmbientIntensity,
+                                        LightsConfig::flashLightDiffuseIntensity,
+                                        LightsConfig::flashLightSpecularIntensity, LightsConfig::flashLightCutOff);
+
     gameInfo.cameraAzimuthAngle = 0.0f;
     gameInfo.cameraElevationAngle = 0.0f;
     glutMainLoop();
@@ -171,10 +156,12 @@ void GameManager::CycleCamera()
 
 void GameManager::InitializeShaders()
 {
-    instance->mainShader = std::make_shared<ShaderProgram>(ShaderPaths::simpleVertexShader, ShaderPaths::simpleFragmentShader);
-    instance->skyboxShader = std::make_shared<ShaderProgram>(ShaderPaths::skyboxVertexShader, ShaderPaths::skyboxFragmentShader);
-    glEnable(GL_BLEND);
-    // glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    instance->mainShader = std::make_shared<ShaderProgram>(ShaderPaths::simpleVertexShader,
+                                                           ShaderPaths::simpleFragmentShader);
+    instance->skyboxShader = std::make_shared<ShaderProgram>(ShaderPaths::skyboxVertexShader,
+                                                             ShaderPaths::skyboxFragmentShader);
+    instance->colorShader = std::make_shared<ShaderProgram>(ShaderPaths::colorVertexShader,
+                                                            ShaderPaths::colorFragmentShader);
 }
 
 void GameManager::InitializeModels()
@@ -197,5 +184,3 @@ void GameManager::PrintGPUInfo()
     std::cout << "GPU Renderer: " << renderer << '\n';
     std::cout << "OpenGL Version: " << version << '\n';
 }
-
-

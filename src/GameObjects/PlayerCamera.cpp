@@ -24,6 +24,7 @@ void PlayerCamera::Update()
 
     auto newPosition = GetPosition() + currentMovementDirection * currentSpeed * GameManager::instance->gameInfo.deltaTime;
     // if (fabs(newPosition.x) >= Ground::size || fabs(newPosition.z) >= Ground::size) return;
+    // TODO collisions
     SetPosition(newPosition);
 }
 
@@ -45,7 +46,6 @@ void PlayerCamera::UpdateOrientation(int mousePositionX, int mousePositionY)
         newRotation.x = newRotationX;
     }
     
-    // newRotation.y = GameUtils::Repeat(newRotation.y + deltaCameraAzimuthAngle, 360.0f);
     newRotation.y += deltaCameraAzimuthAngle;
     SetRotation(newRotation);
 }

@@ -15,15 +15,22 @@ public:
 
     void SetTextureSampler(GLint textureID) const;
 
-    void SetAmbientLight(const glm::vec3& color, float intensity) const;
-
-    void SetDirectionalLightColor(const glm::vec3& color) const;
-
-    void SetDirectionalLightPosition(const glm::vec3& position) const;
+    void SetSunParameters(const glm::vec3& direction, const glm::vec3& color, float ambientIntensity, float diffuseIntensity, float
+                          specularIntensity) const;
 
     void SetCameraPosition(const glm::vec3& position) const;
-    
+
     void SetMaterial(const std::shared_ptr<Material>& material) const;
+    
+    void SetPointLightParameters(const glm::vec3& position, const glm::vec3& color, float ambientIntensity, float diffuseIntensity, float specularIntensity,
+                               float constant, float linear, float quadratic) const;
+
+    void SetFlashLightParameters(const glm::vec3& position, const glm::vec3& direction, const glm::vec3& color, float ambientIntensity,
+                               float diffuseIntensity, float specularIntensity, float cutOff) const;
+
+    void SetFlashLightPositionAndDirection(const glm::vec3& position, const glm::vec3& direction) const;
+
+    void SetFlashLightState(bool state) const; 
 
     ShaderProgram(const ShaderProgram&) = delete;
 
@@ -49,8 +56,29 @@ private:
     GLint materialSpecularColorLocation;
     GLint materialShininessLocation;
 
-    GLint ambientLightColorLocation;
-    GLint ambientLightIntensityLocation;
+    GLint sunDirectionLocation;
+    GLint sunColorLocation;
+    GLint sunAmbientIntensityLocation;
+    GLint sunDiffuseIntensityLocation;
+    GLint sunSpecularIntensityLocation;
+
+    GLint pointLightPositionLocation;
+    GLint pointLightColorLocation;
+    GLint pointLightAmbientIntensityLocation;
+    GLint pointLightDiffuseIntensityLocation;
+    GLint pointLightSpecularIntensityLocation;
+    GLint pointLightConstantLocation;
+    GLint pointLightLinearLocation;
+    GLint pointLightQuadraticLocation;
+
+    GLint flashLightPositionLocation;
+    GLint flashLightDirectionLocation;
+    GLint flashLightColorLocation;
+    GLint flashLightAmbientIntensityLocation;
+    GLint flashLightDiffuseIntensityLocation;
+    GLint flashLightSpecularIntensityLocation;
+    GLint flashLightCutOffLocation;
+    GLint flashLightStateLocation;
     
     GLint directionalLightColorLocation;
     GLint directionalLightPositionLocation;

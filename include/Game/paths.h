@@ -4,6 +4,7 @@ namespace TexturePaths
 {
     constexpr auto blueSkybox = "assets/textures/skybox/blue";
     constexpr auto red = "assets/textures/red.png";
+    constexpr auto white = "assets/textures/white.png";
 }
 
 namespace ModelPaths
@@ -12,6 +13,7 @@ namespace ModelPaths
     constexpr auto basketballModel = "assets/models/basketball_common/basketballball.obj";
     constexpr auto droneS = "assets/models/drone/SciFiDroid.obj";
     constexpr auto portalCube = "assets/models/cube/portal.obj";
+    constexpr auto streetLight = "assets/models/StreetLight/Street_Lamp_1.obj";
 }
 
 namespace ShaderPaths
@@ -20,5 +22,7 @@ namespace ShaderPaths
     constexpr auto simpleFragmentShader = "shaders/simple.frag";
     constexpr auto skyboxVertexShader = "shaders/skybox.vert";
     constexpr auto skyboxFragmentShader = "shaders/skybox.frag";
+    constexpr auto colorVertexShader = "shaders/color.vert";
+    constexpr auto colorFragmentShader = "shaders/color.frag";
 }
 

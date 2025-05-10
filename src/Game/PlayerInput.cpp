@@ -17,6 +17,7 @@ std::unordered_map<unsigned char, void (*)(unsigned char)> PlayerInput::keyRelea
     std::pair<const unsigned char, KeyMethod>{Input::moveRight, &PlayerInput::ResetPlayerDirection},
     std::pair<const unsigned char, KeyMethod>{Input::exitGame, &PlayerInput::FinishGame},
     std::pair<const unsigned char, KeyMethod>{Input::toggleFullscreen, &PlayerInput::ToggleFullscreen},
+    std::pair<const unsigned char, KeyMethod>{Input::toggleFlashLight, &PlayerInput::ToggleFlashLight},
 };
 
 std::unordered_map<unsigned char, void (*)(unsigned char)> PlayerInput::specialKeyPressToMethod{
@@ -28,7 +29,8 @@ std::unordered_map<unsigned char, void (*)(unsigned char)> PlayerInput::specialK
     std::pair<const unsigned char, KeyMethod>{Input::sprint, &PlayerInput::DeactivatePlayerSprint},
 };
 
-bool PlayerInput::IsFullscreen = true;
+bool PlayerInput::isFullscreen = true;
+bool PlayerInput::isFlashLightOn = false;
 
 
 std::unordered_map<unsigned char, glm::vec2> PlayerInput::keyToDirection = {
@@ -99,14 +101,20 @@ void PlayerInput::CycleCamera(unsigned char input)
     GameManager::instance->CycleCamera();
 }
 
+void PlayerInput::ToggleFlashLight(unsigned char input)
+{
+    isFlashLightOn = !isFlashLightOn;
+    GameManager::instance->mainShader->SetFlashLightState(isFlashLightOn);
+}
+
 void PlayerInput::ToggleFullscreen(unsigned char input)
 {
-    if (IsFullscreen)
+    if (isFullscreen)
     {
         glutLeaveFullScreen();
-        IsFullscreen = false;
+        isFullscreen = false;
         return;
     }
     glutFullScreen();
-    IsFullscreen = true;
+    isFullscreen = true;
 }

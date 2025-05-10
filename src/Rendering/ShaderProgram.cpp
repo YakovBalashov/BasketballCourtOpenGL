@@ -24,8 +24,30 @@ ShaderProgram::ShaderProgram(const char* vertexShaderFile, const char* fragmentS
     materialSpecularColorLocation = glGetUniformLocation(program, "material.specular");
     materialShininessLocation = glGetUniformLocation(program, "material.shininess");
 
-    ambientLightColorLocation = glGetUniformLocation(program, "ambientLightColor");
+    sunDirectionLocation = glGetUniformLocation(program, "sun.direction");
+    sunColorLocation = glGetUniformLocation(program, "sun.color");
+    sunAmbientIntensityLocation = glGetUniformLocation(program, "sun.ambientIntensity");
+    sunDiffuseIntensityLocation = glGetUniformLocation(program, "sun.diffuseIntensity");
+    sunSpecularIntensityLocation = glGetUniformLocation(program, "sun.specularIntensity");
 
+    pointLightPositionLocation = glGetUniformLocation(program, "pointLight.position");
+    pointLightColorLocation = glGetUniformLocation(program, "pointLight.color");
+    pointLightAmbientIntensityLocation = glGetUniformLocation(program, "pointLight.ambientIntensity");
+    pointLightDiffuseIntensityLocation = glGetUniformLocation(program, "pointLight.diffuseIntensity");
+    pointLightSpecularIntensityLocation = glGetUniformLocation(program, "pointLight.specularIntensity");
+    pointLightConstantLocation = glGetUniformLocation(program, "pointLight.constant");
+    pointLightLinearLocation = glGetUniformLocation(program, "pointLight.linear");
+    pointLightQuadraticLocation = glGetUniformLocation(program, "pointLight.quadratic");
+
+    flashLightPositionLocation = glGetUniformLocation(program, "flashLight.position");
+    flashLightDirectionLocation = glGetUniformLocation(program, "flashLight.direction");
+    flashLightColorLocation = glGetUniformLocation(program, "flashLight.color");
+    flashLightAmbientIntensityLocation = glGetUniformLocation(program, "flashLight.ambientIntensity");
+    flashLightDiffuseIntensityLocation = glGetUniformLocation(program, "flashLight.diffuseIntensity");
+    flashLightSpecularIntensityLocation = glGetUniformLocation(program, "flashLight.specularIntensity");
+    flashLightCutOffLocation = glGetUniformLocation(program, "flashLight.cutOff");
+    flashLightStateLocation = glGetUniformLocation(program, "flashLight.state");
+    
     directionalLightColorLocation = glGetUniformLocation(program, "directionalLightColor");
     directionalLightPositionLocation = glGetUniformLocation(program, "directionalLightPosition");
     
@@ -54,19 +76,14 @@ void ShaderProgram::SetTextureSampler(GLint textureID) const
     glUniform1i(textureSamplerLocation, textureID);
 }
 
-void ShaderProgram::SetAmbientLight(const glm::vec3& color, float intensity) const
+void ShaderProgram::SetSunParameters(const glm::vec3& direction, const glm::vec3& color, float ambientIntensity, float diffuseIntensity, float
+                                     specularIntensity) const
 {
-    glUniform3fv(ambientLightColorLocation, 1, glm::value_ptr(color));
-}
-
-void ShaderProgram::SetDirectionalLightColor(const glm::vec3& color) const
-{
-    glUniform3fv(directionalLightColorLocation, 1, glm::value_ptr(color));
-}
-
-void ShaderProgram::SetDirectionalLightPosition(const glm::vec3& position) const
-{
-    glUniform3fv(directionalLightPositionLocation, 1, glm::value_ptr(position));
+    glUniform3fv(sunDirectionLocation, 1, glm::value_ptr(direction));
+    glUniform3fv(sunColorLocation, 1, glm::value_ptr(color));
+    glUniform1f(sunAmbientIntensityLocation, ambientIntensity);
+    glUniform1f(sunDiffuseIntensityLocation, diffuseIntensity);
+    glUniform1f(sunSpecularIntensityLocation, specularIntensity);
 }
 
 void ShaderProgram::SetCameraPosition(const glm::vec3& position) const
@@ -82,6 +99,47 @@ void ShaderProgram::SetMaterial(const std::shared_ptr<Material>& material) const
     glUniform1f(materialShininessLocation, material->shininess);
 }
 
+void ShaderProgram::SetPointLightParameters(const glm::vec3& position, const glm::vec3& color, float ambientIntensity,
+    float diffuseIntensity, float specularIntensity, float constant, float linear, float quadratic) const
+{
+    glUniform3fv(pointLightPositionLocation, 1, glm::value_ptr(position));
+    glUniform3fv(pointLightColorLocation, 1, glm::value_ptr(color));
+    
+    glUniform1f(pointLightAmbientIntensityLocation, ambientIntensity);
+    glUniform1f(pointLightDiffuseIntensityLocation, diffuseIntensity);
+    glUniform1f(pointLightSpecularIntensityLocation, specularIntensity);
+    
+    glUniform1f(pointLightConstantLocation, constant);
+    glUniform1f(pointLightLinearLocation, linear);
+    glUniform1f(pointLightQuadraticLocation, quadratic);
+}
 
+void ShaderProgram::SetFlashLightParameters(const glm::vec3& position, const glm::vec3& direction,
+    const glm::vec3& color, float ambientIntensity, float diffuseIntensity, float specularIntensity, float cutOff) const
+{
+    glUniform3fv(flashLightPositionLocation, 1, glm::value_ptr(position));
+    glUniform3fv(flashLightDirectionLocation, 1, glm::value_ptr(direction));
+    
+    glUniform3fv(flashLightColorLocation, 1, glm::value_ptr(color));
+    
+    glUniform1f(flashLightAmbientIntensityLocation, ambientIntensity);
+    glUniform1f(flashLightDiffuseIntensityLocation, diffuseIntensity);
+    glUniform1f(flashLightSpecularIntensityLocation, specularIntensity);
+    
+    glUniform1f(flashLightCutOffLocation, cutOff);
+}
+
+
+void ShaderProgram::SetFlashLightPositionAndDirection(const glm::vec3& position, const glm::vec3& direction) const
+{
+    glUniform3fv(flashLightPositionLocation, 1, glm::value_ptr(position));
+    glUniform3fv(flashLightDirectionLocation, 1, glm::value_ptr(direction));
+}
+
+void ShaderProgram::SetFlashLightState(bool state) const
+{
+    std::cout << "Flashlight state: " << state << std::endl;
+    glUniform1i(flashLightStateLocation, 1);
+}
 
 

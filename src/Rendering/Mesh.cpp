@@ -65,7 +65,7 @@ Mesh::~Mesh()
     glDeleteBuffers(1, &vbo);
 }
 
-void Mesh::Render() const
+void Mesh::Render() 
 {
     if (textureID != 0)
     {
