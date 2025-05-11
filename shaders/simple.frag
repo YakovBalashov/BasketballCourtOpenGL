@@ -44,6 +44,12 @@ struct FlashLight {
     int state;
 };
 
+struct Fog {
+    vec3 color;
+    float start;
+    float end;
+};
+
 in vec2 TexCoord;
 in vec3 Normal;
 in vec3 FragPos;
@@ -56,6 +62,8 @@ uniform vec3 cameraPosition;
 uniform Sun sun;
 uniform PointLight pointLight;
 uniform FlashLight flashLight;
+
+uniform Fog fog;
 
 vec3 calculateFlashLight(vec3 norm, vec3 fragPos) {
     vec3 lightDir = normalize(flashLight.position - fragPos);
@@ -113,6 +121,12 @@ vec3 calculatePointLight(vec3 normal, vec3 fragPos) {
     return pointLight;
 }
 
+float calculateFogFactor(float distance) {
+    float fogFactor = (fog.end - distance) / (fog.end - fog.start);
+    fogFactor = clamp(fogFactor, 0.0, 1.0);
+    return fogFactor;
+}
+
 void main()
 {
     vec3 sunLight = calculateSunLight(Normal, FragPos);
@@ -123,8 +137,16 @@ void main()
     
     vec3 textureColor = texture(textureSampler, TexCoord).rgb;
     float textureAlpha = texture(textureSampler, TexCoord).a;
-
-    FragColor = vec4((sunLight + pointLight + flashLight) * textureColor, textureAlpha);
+    
+    float distance = length(FragPos - cameraPosition);
+    
+    float fogFactor = calculateFogFactor(distance);
+    
+    vec3 colorWithoutFog = (sunLight + pointLight + flashLight) * textureColor;
+    
+    vec3 colorWithFog = mix(fog.color, colorWithoutFog, fogFactor);
+    
+    FragColor = vec4(colorWithFog, textureAlpha);
 }
 
 

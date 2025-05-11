@@ -13,6 +13,7 @@ void GameEvents::OnRenderDisplay()
 
     GameManager::instance->mainShader->UseProgram();
     GameManager::instance->mainShader->SetCameraPosition(GameManager::instance->currentCamera->GetPosition());
+    GameManager::instance->mainShader->SetTime(GameManager::instance->gameInfo.currentTime);
 
     auto projectionMatrix = glm::perspective(glm::radians(CameraConfig::fovy),
                                              static_cast<float>(GameManager::instance->gameInfo.windowWidth) /

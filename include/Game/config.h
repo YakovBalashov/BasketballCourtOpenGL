@@ -43,7 +43,7 @@ namespace LightsConfig
 
 namespace CameraConfig
 {
-    constexpr float maxElevation = 45.0f;
+    constexpr float maxElevation = 90.0f;
     constexpr float verticalSensitivity = 0.05f;
     constexpr float horizontalSensitivity = 0.05f;
     constexpr float fovy = 60.0f;
@@ -58,6 +58,12 @@ namespace DebugGrid
     constexpr float yLevel = 0.1f;
 }
 
+namespace Fog 
+{
+    constexpr float normalStart = 25.0f;
+    constexpr float normalEnd = 100.0f;
+    extern glm::vec3 normalColor;
+}
 
 namespace Ground
 {

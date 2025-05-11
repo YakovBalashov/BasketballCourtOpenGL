@@ -4,5 +4,5 @@
 
 void PointLight::Interact()
 {
-    std::cout << "Open Gl is for fucking losers" << std::endl;
+    std::cout << "JeBron Lames" << std::endl;
 }

@@ -10,7 +10,6 @@
 #include "Game/GameEvents.h"
 #include "GameObjects/PlayerCamera.h"
 #include "GameObjects/Skybox.h"
-#include "Rendering/vertices.h"
 
 
 class GameManager
@@ -29,6 +28,7 @@ public:
 
     std::shared_ptr<ShaderProgram> mainShader;
     std::shared_ptr<ShaderProgram> colorShader;
+    std::shared_ptr<ShaderProgram> animatedShader;
 
     std::vector<std::shared_ptr<GameObject>> gameObjects;
 

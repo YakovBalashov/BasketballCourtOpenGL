@@ -18,6 +18,9 @@ ShaderProgram::ShaderProgram(const char* vertexShaderFile, const char* fragmentS
     cameraPositionLocation = glGetUniformLocation(program, "cameraPosition");
     
     textureSamplerLocation = glGetUniformLocation(program, "textureSampler");
+    textureOffsetSpeedLocation = glGetUniformLocation(program, "textureOffsetSpeed");
+    textureOffsetTimeLocation = glGetUniformLocation(program, "textureOffsetTime");
+    
 
     materialAmbientColorLocation = glGetUniformLocation(program, "material.ambient");
     materialDiffuseColorLocation = glGetUniformLocation(program, "material.diffuse");
@@ -50,6 +53,13 @@ ShaderProgram::ShaderProgram(const char* vertexShaderFile, const char* fragmentS
     
     directionalLightColorLocation = glGetUniformLocation(program, "directionalLightColor");
     directionalLightPositionLocation = glGetUniformLocation(program, "directionalLightPosition");
+
+    frameCountLocation = glGetUniformLocation(program, "frameCount");
+    currentFrameLocation = glGetUniformLocation(program, "currentFrame");
+
+    fogColorLocation = glGetUniformLocation(program, "fog.color");
+    fogStartLocation = glGetUniformLocation(program, "fog.start");
+    fogEndLocation = glGetUniformLocation(program, "fog.end");
     
     glEnable(GL_DEPTH_TEST);
 }
@@ -141,5 +151,33 @@ void ShaderProgram::SetFlashLightState(bool state) const
     std::cout << "Flashlight state: " << state << std::endl;
     glUniform1i(flashLightStateLocation, 1);
 }
+
+void ShaderProgram::SetTime(float time) const
+{
+    glUniform1f(textureOffsetTimeLocation, time);
+}
+
+void ShaderProgram::SetTextureOffsetSpeed(const glm::vec2& speed) const
+{
+    glUniform2fv(textureOffsetSpeedLocation, 1, glm::value_ptr(speed));
+}
+
+void ShaderProgram::SetFrameCount(int frameCount) const
+{
+    glUniform1i(frameCountLocation, frameCount);
+}
+
+void ShaderProgram::SetCurrentFrame(int currentFrame) const
+{
+    glUniform1i(currentFrameLocation, currentFrame);
+}
+
+void ShaderProgram::SetFogParameters(const glm::vec3& fogColor, float fogStart, float fogEnd) const
+{
+    glUniform3fv(fogColorLocation, 1, glm::value_ptr(fogColor));
+    glUniform1f(fogStartLocation, fogStart);
+    glUniform1f(fogEndLocation, fogEnd);
+}
+
 
 

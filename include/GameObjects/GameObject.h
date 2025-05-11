@@ -1,15 +1,12 @@
 ﻿#pragma once
 #include "pgr.h"
 
-class GameObject
+class GameObject : public std::enable_shared_from_this<GameObject>
 {
 public:
     GameObject() = default;
 
-    GameObject(const glm::vec3& position, const glm::vec3& rotation, const glm::vec3& scale)
-        : position(position), rotation(rotation), scale(scale)
-    {
-    }
+    GameObject(const glm::vec3& position, const glm::vec3& rotation, const glm::vec3& scale);
 
     virtual ~GameObject() = default;
 
@@ -17,13 +14,23 @@ public:
     {
     }
 
-    glm::vec3 GetPosition() const { return position; }
+    glm::vec3 GetPosition() const;
 
-    glm::vec3 GetRotation() const { return rotation; }
+    glm::quat GetWorldRotation() const;
+    
+    glm::vec3 GetRotation() const;
 
-    glm::vec3 GetScale() const { return scale; }
+    glm::vec3 GetScale() const;
+
+    glm::vec3 GetRelativePosition() const { return position; }
+
+    glm::vec3 GetRelativeRotation() const { return rotation; }
+
+    glm::vec3 GetRelativeScale() const { return scale; }
 
     void AddChild(const std::shared_ptr<GameObject>& child);
+
+    void SetParent(const std::shared_ptr<GameObject>& newParent);
     
 
 protected:
@@ -35,6 +42,8 @@ protected:
 
 private:
     std::vector<std::shared_ptr<GameObject>> children;
+
+    std::shared_ptr<GameObject> parent;
     
     glm::vec3 position = glm::vec3(0.0f);
 

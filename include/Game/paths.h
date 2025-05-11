@@ -5,6 +5,9 @@ namespace TexturePaths
     constexpr auto blueSkybox = "assets/textures/skybox/blue";
     constexpr auto red = "assets/textures/red.png";
     constexpr auto white = "assets/textures/white.png";
+    constexpr auto logo = "assets/textures/logo.JPG";
+    constexpr auto portal = "assets/textures/portal.png";
+    constexpr auto counter = "assets/textures/counter.png";
 }
 
 namespace ModelPaths
@@ -24,5 +27,7 @@ namespace ShaderPaths
     constexpr auto skyboxFragmentShader = "shaders/skybox.frag";
     constexpr auto colorVertexShader = "shaders/color.vert";
     constexpr auto colorFragmentShader = "shaders/color.frag";
+    constexpr auto animatedVertexShader = "shaders/animated.vert";
+    constexpr auto animatedFragmentShader = "shaders/animated.frag";
 }
 

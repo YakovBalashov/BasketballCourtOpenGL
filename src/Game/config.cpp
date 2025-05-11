@@ -12,4 +12,9 @@ namespace LightsConfig
     float flashLightCutOff = glm::cos(glm::radians(12.5f));
 }
 
+namespace Fog
+{
+    glm::vec3 normalColor = glm::vec3(0.5f, 0.5f, 0.5f);
+}
+
 

@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include "Material.h"
 #include "pgr.h"
+#include "GameObjects/Camera.h"
+#include "GameObjects/Camera.h"
 
 class ShaderProgram
 {
@@ -30,8 +32,18 @@ public:
 
     void SetFlashLightPositionAndDirection(const glm::vec3& position, const glm::vec3& direction) const;
 
-    void SetFlashLightState(bool state) const; 
+    void SetFlashLightState(bool state) const;
 
+    void SetTime(float time) const;
+    
+    void SetTextureOffsetSpeed(const glm::vec2& speed) const;
+
+    void SetFrameCount(int frameCount) const;
+
+    void SetCurrentFrame(int currentFrame) const;
+
+    void SetFogParameters(const glm::vec3& fogColor, float fogStart, float fogEnd) const;
+    
     ShaderProgram(const ShaderProgram&) = delete;
 
     ShaderProgram& operator=(const ShaderProgram&) = delete;
@@ -50,6 +62,8 @@ private:
     GLint cameraPositionLocation;
 
     GLint textureSamplerLocation;
+    GLint textureOffsetSpeedLocation;
+    GLint textureOffsetTimeLocation;
 
     GLint materialAmbientColorLocation;
     GLint materialDiffuseColorLocation;
@@ -82,4 +96,11 @@ private:
     
     GLint directionalLightColorLocation;
     GLint directionalLightPositionLocation;
+
+    GLint frameCountLocation;
+    GLint currentFrameLocation;
+
+    GLint fogColorLocation;
+    GLint fogStartLocation;
+    GLint fogEndLocation;
 };

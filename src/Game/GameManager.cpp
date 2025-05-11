@@ -4,6 +4,8 @@
 #include "Game/PlayerInput.h"
 #include "GameObjects/Drone.h"
 #include "GameObjects/Camera.h"
+#include "GameObjects/Counter.h"
+#include "GameObjects/CourtLogo.h"
 #include "GameObjects/ModelObject.h"
 #include "GameObjects/PointLight.h"
 #include "GameObjects/Skybox.h"
@@ -50,7 +52,7 @@ void GameManager::SetupCameras()
     cameras.push_back(playerCamera);
     gameObjects.push_back(playerCamera);
 
-    auto staticCameraA = std::make_shared<Camera>(glm::vec3(7.0f, 50.0f, 0.0f), glm::vec3(315.0f, 0.0f, 0.0f),
+    auto staticCameraA = std::make_shared<Camera>(glm::vec3(7.0f, 48.0f, 0.0f), glm::vec3(270.0f, 0.0f, 0.0f),
                                                   glm::vec3(1.0f));
     cameras.push_back(staticCameraA);
     gameObjects.push_back(staticCameraA);
@@ -94,26 +96,41 @@ void GameManager::StartGame()
 
     SetupCameras();
 
+    
+
     auto concreteTexture = std::make_shared<Texture>("assets/textures/concrete_a.jpg");
     auto redTexture = std::make_shared<Texture>(TexturePaths::red);
     auto whiteTexture = std::make_shared<Texture>(TexturePaths::white);
+    auto portalTexture = std::make_shared<Texture>(TexturePaths::portal);
 
     auto defaultMaterial = std::make_shared<Material>();
     auto shinyMaterial = std::make_shared<Material>(glm::vec3(1.0f), glm::vec3(0.7f), glm::vec3(1.0f), 32.0f);
     auto diffuseMaterial = std::make_shared<Material>(glm::vec3(0.5f), glm::vec3(0.7f), glm::vec3(0.0f), 32.0f);
 
-    /*
-    auto courtModel = std::make_shared<Model>(ModelPaths::courtModel);
+    /*auto courtModel = std::make_shared<Model>(ModelPaths::courtModel);
     auto court = std::make_shared<ModelObject>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f),
                                                courtModel, mainShader, defaultMaterial);
-    gameObjects.push_back(court);
-    */
+    gameObjects.push_back(court);*/
     
     auto streetLampModel = std::make_shared<Model>(ModelPaths::streetLight);
-    auto streetLamp = std::make_shared<ModelObject>(glm::vec3(5.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(1.0f),
+    auto streetLamp = std::make_shared<ModelObject>(glm::vec3(5.0f, 0.0f, 0.0f), glm::vec3(90.0f, 0.0f, 0.0f), glm::vec3(1.0f),
                                                     streetLampModel, mainShader, defaultMaterial);
     gameObjects.push_back(streetLamp);
 
+    auto logoTexture = std::make_shared<Texture>(TexturePaths::logo);
+    auto logoMesh = std::make_shared<Mesh>(MeshVertices::squareVertices, MeshVertices::squareIndices,
+                                           logoTexture->getTextureID());
+    auto logo = std::make_shared<CourtLogo>(glm::vec3(6.5f, 0.1f, -2.3f), glm::vec3(270.0f, 0.0f, 90.0f), glm::vec3(1.0f),
+                                           logoMesh, mainShader, defaultMaterial);
+    gameObjects.push_back(logo);
+    
+    auto counterTexture = std::make_shared<Texture>(TexturePaths::counter);
+    auto counterMesh = std::make_shared<Mesh>(MeshVertices::counterVertices, MeshVertices::squareIndices,
+                                              counterTexture->getTextureID());
+    auto counter = std::make_shared<Counter>(glm::vec3(6.0f, 0.1f, 0.0f), glm::vec3(0.0f), glm::vec3(0.5f),
+                                           counterMesh, animatedShader, defaultMaterial);
+    gameObjects.push_back(counter);
+    
     auto cubeMesh = std::make_shared<Mesh>(MeshVertices::cubeVertices, MeshVertices::cubeIndices,
                                            redTexture->getTextureID());
     auto lightCubeMesh = std::make_shared<Mesh>(MeshVertices::cubeVertices, MeshVertices::cubeIndices,
@@ -151,6 +168,9 @@ void GameManager::StartGame()
                                         LightsConfig::flashLightDiffuseIntensity,
                                         LightsConfig::flashLightSpecularIntensity, LightsConfig::flashLightCutOff);
 
+    mainShader->SetFogParameters(Fog::normalColor, Fog::normalStart, Fog::normalEnd);
+    
+
     glutMainLoop();
 }
 
@@ -169,6 +189,8 @@ void GameManager::InitializeShaders()
                                                              ShaderPaths::skyboxFragmentShader);
     instance->colorShader = std::make_shared<ShaderProgram>(ShaderPaths::colorVertexShader,
                                                             ShaderPaths::colorFragmentShader);
+    instance->animatedShader = std::make_shared<ShaderProgram>(ShaderPaths::animatedVertexShader,
+                                       ShaderPaths::animatedFragmentShader);
 }
 
 void GameManager::InitializeModels()
