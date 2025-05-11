@@ -11,6 +11,7 @@
 #include "GameObjects/ModelObject.h"
 #include "GameObjects/PointLight.h"
 #include "GameObjects/Skybox.h"
+#include "GameObjects/SunNode.h"
 #include "GameObjects/TestObject.h"
 #include "Rendering/DebugMesh.h"
 #include "Rendering/Texture.h"
@@ -134,10 +135,25 @@ void GameManager::StartGame()
     auto defaultMaterial = std::make_shared<Material>();
     auto shinyMaterial = std::make_shared<Material>(glm::vec3(1.0f), glm::vec3(0.7f), glm::vec3(1.0f), 32.0f);
     auto diffuseMaterial = std::make_shared<Material>(glm::vec3(0.5f), glm::vec3(0.7f), glm::vec3(0.0f), 32.0f);
+    auto basketballMaterial = std::make_shared<Material>(glm::vec3(0.8f), glm::vec3(0.8f), glm::vec3(0.3f), 32.0f);
+    auto nomaiMaterial = std::make_shared<Material>(glm::vec3(0.8f), glm::vec3(0.0f), glm::vec3(0.0f), 32.0f);
 
     // Models
     auto streetLampModel = std::make_shared<Model>(ModelPaths::streetLight);
+    auto basketballModel = std::make_shared<Model>(ModelPaths::basketballB);
 
+    // Nomai Installation
+    auto sunNode = std::make_shared<SunNode>(glm::vec3(0.0f, 2.0f, 10.0f), glm::vec3(0.0f), glm::vec3(1.0f),
+                                               basketballModel, mainShader, defaultMaterial);
+    auto planetNode = std::make_shared<Drone>(glm::vec3(0.3f), basketballModel, mainShader, nomaiMaterial,
+                                               glm::vec3(0.0f, 0.0f, 0.0f), 0.2f, 4.5f);
+    auto satelliteNode = std::make_shared<Drone>(glm::vec3(0.5f), basketballModel, mainShader, nomaiMaterial,
+                                               glm::vec3(0.0f, 0.0f, 0.0f), 0.06f, 2.0f);
+    planetNode->AddChild(satelliteNode);
+    sunNode->AddChild(planetNode);
+    gameObjects.push_back(sunNode);
+    gameObjects.push_back(planetNode);
+    gameObjects.push_back(satelliteNode);
 
     // Court
     /*auto courtModel = std::make_shared<Model>(ModelPaths::courtModel);
@@ -160,7 +176,6 @@ void GameManager::StartGame()
     gameObjects.push_back(basketballCollider);
     interactableObjects.push_back(basketballCollider);
     
-    auto basketballModel = std::make_shared<Model>(ModelPaths::basketballB);
     auto basketball = std::make_shared<ModelObject>(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f), glm::vec3(2.5f),
                                                     basketballModel, mainShader, diffuseMaterial);
     gameObjects.push_back(basketball);

@@ -49,8 +49,10 @@ glm::vec3 GameObject::GetRotation() const
         glm::radians(parent->GetRotation().z)
     );
 
-    int sign = parent->GetRotation().y < 270.0f && parent->GetRotation().y > 90.0f ? -1 : 1;
-    
+    int signX = parent->GetRotation().x < 270.0f && parent->GetRotation().x > 90.0f ? -1 : 1;
+    int signY = parent->GetRotation().y < 270.0f && parent->GetRotation().y > 90.0f ? -1 : 1;
+    int signZ = parent->GetRotation().z < 270.0f && parent->GetRotation().z > 90.0f ? -1 : 1;
+
     glm::mat4 worldRotMat = parentRotMat * localRotMat;
 
     glm::vec3 worldRadians = glm::eulerAngles(glm::quat(worldRotMat));
@@ -58,9 +60,9 @@ glm::vec3 GameObject::GetRotation() const
     glm::vec3 worldEuler = glm::degrees(glm::vec3(worldRadians));
 
     auto repeated = glm::vec3(
-        GameUtils::Repeat(worldEuler.x, 360.0f),
-        GameUtils::Repeat(sign * worldEuler.y, 360.0f),
-        GameUtils::Repeat(worldEuler.z, 360.0f)
+        GameUtils::Repeat(signX * worldEuler.x, 360.0f),
+        GameUtils::Repeat(signY * worldEuler.y, 360.0f),
+        GameUtils::Repeat(signZ * worldEuler.z, 360.0f)
     );
 
     return repeated;
