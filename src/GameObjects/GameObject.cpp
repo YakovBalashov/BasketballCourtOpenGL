@@ -36,7 +36,6 @@ glm::vec3 GameObject::GetRotation() const
 {
     if (!parent) return rotation;
 
-    // Convert local rotation to quaternion using YXZ rotation order
     glm::mat4 localRotMat = glm::eulerAngleYXZ(
         glm::radians(rotation.y),
         glm::radians(rotation.x),

@@ -8,6 +8,7 @@ namespace TexturePaths
     constexpr auto green = "assets/textures/green.png";
     constexpr auto blue = "assets/textures/blue.png";
     constexpr auto white = "assets/textures/white.png";
+    constexpr auto gray = "assets/textures/gray.png";
     constexpr auto logo = "assets/textures/logo.JPG";
     constexpr auto portal = "assets/textures/portal.png";
     constexpr auto counter = "assets/textures/counter.png";
@@ -23,6 +24,7 @@ namespace ModelPaths
     constexpr auto droneS = "assets/models/drone/SciFiDroid.obj";
     constexpr auto portalCube = "assets/models/cube/portal.obj";
     constexpr auto streetLight = "assets/models/StreetLight/Street_Lamp_1.obj";
+    constexpr auto bench = "assets/models/bech/bech.fbx";
 }
 
 namespace ShaderPaths

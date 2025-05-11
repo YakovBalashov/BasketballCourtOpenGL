@@ -15,7 +15,7 @@ public:
     void Update() override;
 
 private:
-    float maxOffset = 0.2f;
+    float maxOffset = 0.7f;
     float movementSpeed = 0.1f;
     float rotationSpeed = 0.0f;
     float initialHeight;

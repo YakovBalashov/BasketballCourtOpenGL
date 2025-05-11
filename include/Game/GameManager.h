@@ -48,7 +48,7 @@ public:
     GameManager();
 
     static void InitializeFramework();
-    void SetLightParameters(std::shared_ptr<PointLight> pointLight);
+    void SetLightParameters(std::shared_ptr<PointLight> pointLight, std::shared_ptr<GameObject> SpotLight);
 
     static void InitializeGlut(int argc, char** argv);
 

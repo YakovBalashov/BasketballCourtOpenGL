@@ -40,7 +40,7 @@ namespace LightsConfig
     extern glm::vec3 flashLightColor;
     extern glm::vec3 flashLightDirection;
     constexpr float flashLightAmbientIntensity = 0.0f;
-    constexpr float flashLightDiffuseIntensity = 0.7f;
+    constexpr float flashLightDiffuseIntensity = 0.9f;
     constexpr float flashLightSpecularIntensity = 1.0f;
     extern float flashLightCutOff;
 }
@@ -68,7 +68,7 @@ namespace Fog
     constexpr float normalEnd = 100.0f;
     extern glm::vec3 normalColor;
 
-    constexpr float silentHillStart = 0.5f;
+    constexpr float silentHillStart = 0.0f;
     constexpr float silentHillEnd = 30.0f;
 }
 

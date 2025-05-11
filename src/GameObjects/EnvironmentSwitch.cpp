@@ -4,5 +4,21 @@
 
 void EnvironmentSwitch::Interact()
 {
+    if (isDown) return;
+    isDown = true;
     GameManager::instance->skybox->CycleSkybox();
+    SetPosition(GetRelativePosition() + offset);
+}
+
+void EnvironmentSwitch::Update()
+{
+    if (!isDown) return;
+    currentDownTime -= GameManager::instance->gameInfo.deltaTime;
+
+    if (currentDownTime < 0.0f) 
+    {
+        currentDownTime = downTime;
+        SetPosition(GetRelativePosition() - offset);
+        isDown = false;
+    }
 }
