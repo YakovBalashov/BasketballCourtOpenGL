@@ -96,6 +96,16 @@ void ShaderProgram::SetSunParameters(const glm::vec3& direction, const glm::vec3
     glUniform1f(sunSpecularIntensityLocation, specularIntensity);
 }
 
+void ShaderProgram::SetSunColorAndIntensity(const glm::vec3& color, float ambientIntensity, float diffuseIntensity,
+    float specularIntensity) const
+{
+    glUniform3fv(sunColorLocation, 1, glm::value_ptr(color));
+    glUniform1f(sunAmbientIntensityLocation, ambientIntensity);
+    glUniform1f(sunDiffuseIntensityLocation, diffuseIntensity);
+    glUniform1f(sunSpecularIntensityLocation, specularIntensity);
+}
+
+
 void ShaderProgram::SetCameraPosition(const glm::vec3& position) const
 {
     glUniform3fv(cameraPositionLocation, 1, glm::value_ptr(position));
@@ -124,8 +134,13 @@ void ShaderProgram::SetPointLightParameters(const glm::vec3& position, const glm
     glUniform1f(pointLightQuadraticLocation, quadratic);
 }
 
+void ShaderProgram::SetPointLightColor(const glm::vec3& color) const
+{
+    glUniform3fv(pointLightColorLocation, 1, glm::value_ptr(color));
+}
+
 void ShaderProgram::SetFlashLightParameters(const glm::vec3& position, const glm::vec3& direction,
-    const glm::vec3& color, float ambientIntensity, float diffuseIntensity, float specularIntensity, float cutOff) const
+                                            const glm::vec3& color, float ambientIntensity, float diffuseIntensity, float specularIntensity, float cutOff) const
 {
     glUniform3fv(flashLightPositionLocation, 1, glm::value_ptr(position));
     glUniform3fv(flashLightDirectionLocation, 1, glm::value_ptr(direction));
@@ -138,6 +153,7 @@ void ShaderProgram::SetFlashLightParameters(const glm::vec3& position, const glm
     
     glUniform1f(flashLightCutOffLocation, cutOff);
 }
+
 
 
 void ShaderProgram::SetFlashLightPositionAndDirection(const glm::vec3& position, const glm::vec3& direction) const

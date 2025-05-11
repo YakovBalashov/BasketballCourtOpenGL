@@ -25,6 +25,10 @@ namespace LightsConfig
     constexpr float sunDiffuseIntensity = 0.6f;
     constexpr float sunSpecularIntensity = 1.0f;
 
+    constexpr float silentHillAmbientIntensity = 0.3f;
+    constexpr float silentHillDiffuseIntensity = 0.4f;
+    constexpr float silentHillSpecularIntensity = 0.3f;
+
     extern glm::vec3 pointLightColor;
     constexpr float pointLightAmbientIntensity = 0.0f;
     constexpr float pointLightDiffuseIntensity = 0.7f;
@@ -63,6 +67,9 @@ namespace Fog
     constexpr float normalStart = 25.0f;
     constexpr float normalEnd = 100.0f;
     extern glm::vec3 normalColor;
+
+    constexpr float silentHillStart = 0.5f;
+    constexpr float silentHillEnd = 30.0f;
 }
 
 namespace Ground

@@ -11,6 +11,12 @@ float GameUtils::Repeat(float value, float max)
     return fmod(fmod(value, max) + max, max);
 }
 
+int GameUtils::Repeat(int value, int max)
+{
+    return static_cast<int>(fmod(fmod(value, max) + max, max));
+}
+
+
 void GameUtils::GenerateGrid(float size, float spacing)
 {
     auto redTexture = std::make_shared<Texture>(TexturePaths::red);

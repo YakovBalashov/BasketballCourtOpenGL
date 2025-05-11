@@ -9,6 +9,7 @@
 #include "Rendering/ShaderProgram.h"
 #include "Game/GameEvents.h"
 #include "GameObjects/PlayerCamera.h"
+#include "GameObjects/PointLight.h"
 #include "GameObjects/Skybox.h"
 
 
@@ -47,6 +48,7 @@ public:
     GameManager();
 
     static void InitializeFramework();
+    void SetLightParameters(std::shared_ptr<PointLight> pointLight);
 
     static void InitializeGlut(int argc, char** argv);
 

@@ -14,5 +14,5 @@ void MeshObject::RenderObject(const glm::mat4& viewMatrix, const glm::mat4& proj
     shaderProgram->UseProgram();
     shaderProgram->SetMaterial(material);
     mesh->Render();
-    glUseProgram(0);
+    // glUseProgram(0);
 }

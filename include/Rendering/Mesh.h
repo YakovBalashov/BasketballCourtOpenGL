@@ -19,6 +19,8 @@ public:
 
     virtual void Render();
 
+    void SetTexture(GLuint newTextureID) { this->textureID = newTextureID; }
+
 protected:
     GLuint vao;
     GLuint vbo;

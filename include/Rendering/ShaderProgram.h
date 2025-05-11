@@ -20,12 +20,16 @@ public:
     void SetSunParameters(const glm::vec3& direction, const glm::vec3& color, float ambientIntensity, float diffuseIntensity, float
                           specularIntensity) const;
 
+    void SetSunColorAndIntensity(const glm::vec3& color, float ambientIntensity, float diffuseIntensity, float specularIntensity) const;
+
     void SetCameraPosition(const glm::vec3& position) const;
 
     void SetMaterial(const std::shared_ptr<Material>& material) const;
     
     void SetPointLightParameters(const glm::vec3& position, const glm::vec3& color, float ambientIntensity, float diffuseIntensity, float specularIntensity,
                                float constant, float linear, float quadratic) const;
+
+    void SetPointLightColor(const glm::vec3& color) const;
 
     void SetFlashLightParameters(const glm::vec3& position, const glm::vec3& direction, const glm::vec3& color, float ambientIntensity,
                                float diffuseIntensity, float specularIntensity, float cutOff) const;

@@ -21,7 +21,7 @@ public:
 
     static void OnMouseAction(int button, int state, int positionX, int positionY);
 
-    static bool IsPassingTrough(glm::vec3 mouseRayDirection, glm::vec3 cameraPosition,
+    static bool IsPassingTrough(const glm::vec3& mouseRayDirection, const glm::vec3& cameraPosition,
                                 const std::vector<std::shared_ptr<GameObject>>::value_type& gameObject);
 
 

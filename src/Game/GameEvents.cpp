@@ -90,7 +90,7 @@ glm::vec3 GameEvents::GetMouseRayDirection(int positionX, int positionY)
     return rayWorld;
 }
 
-bool GameEvents::IsPassingTrough(glm::vec3 mouseRayDirection, glm::vec3 cameraPosition, const std::vector<std::shared_ptr<GameObject>>::value_type& gameObject)
+bool GameEvents::IsPassingTrough(const glm::vec3& mouseRayDirection, const glm::vec3& cameraPosition, const std::vector<std::shared_ptr<GameObject>>::value_type& gameObject)
 {
     glm::vec3 oc = cameraPosition - gameObject->GetPosition();
     float b = glm::dot(oc, mouseRayDirection);

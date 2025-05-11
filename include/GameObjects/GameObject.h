@@ -15,8 +15,6 @@ public:
     }
 
     glm::vec3 GetPosition() const;
-
-    glm::quat GetWorldRotation() const;
     
     glm::vec3 GetRotation() const;
 
