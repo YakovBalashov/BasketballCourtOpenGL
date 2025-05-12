@@ -24,7 +24,6 @@ void PlayerCamera::Update()
     );
 
     auto newPosition = GetPosition() + currentMovementDirection * currentSpeed * GameManager::instance->gameInfo.deltaTime;
-    // if (fabs(newPosition.x) >= Ground::size || fabs(newPosition.z) >= Ground::size) return;
     if (CollisionManager::IsColliding(GetPosition(), newPosition, radius)) return; 
     SetPosition(newPosition);
 }

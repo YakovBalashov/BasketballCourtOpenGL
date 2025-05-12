@@ -24,6 +24,4 @@ public:
     static bool IsPassingTrough(const glm::vec3& mouseRayDirection, const glm::vec3& cameraPosition,
                                 const std::vector<std::shared_ptr<GameObject>>::value_type& gameObject);
 
-
-    // static void OnKeyPress(unsigned char keyPressed, int mouseX, int mouseY);
 };

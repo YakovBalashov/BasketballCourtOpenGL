@@ -104,7 +104,6 @@ void Skybox::LoadTexturesFromFolder(const std::string& folderPath)
 
 void Skybox::RenderObject(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix)
 {
-    // glDepthFunc(GL_LEQUAL);
     glDepthMask(GL_FALSE);
 
     glm::mat4 skyboxViewMatrix = glm::mat4(glm::mat3(viewMatrix));
@@ -121,8 +120,6 @@ void Skybox::RenderObject(const glm::mat4& viewMatrix, const glm::mat4& projecti
 
     glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
     glDepthMask(GL_TRUE);
-
-    // glDepthFunc(GL_LESS);
 }
 
 void Skybox::CycleSkybox()

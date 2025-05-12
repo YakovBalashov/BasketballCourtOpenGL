@@ -86,40 +86,19 @@ void GameObject::SetParent(const std::shared_ptr<GameObject>& newParent)
 
 void GameObject::SetPosition(const glm::vec3& newPosition)
 {
-    // for (const auto& child : children)
-    // {
-    //     auto relativePosition = child->GetPosition() - position;
-    //     child->SetPosition(relativePosition + newPosition);
-    // }
-
     position = newPosition;
 }
 
 void GameObject::SetRotation(const glm::vec3& newRotation)
 {
-    /*auto rotationRadians = glm::radians(rotation);
-    auto rotationMatrix4x4 = glm::eulerAngleYXZ(rotationRadians.y, rotationRadians.x, rotationRadians.z);
-    glm::mat3 rotationMatrix = glm::mat3(rotationMatrix4x4);
-    for (const auto& child : children)
-    {
-        auto relativePosition = child->GetPosition() - position;
-        glm::vec3 rotatedPosition = rotationMatrix * relativePosition;
-        child->SetPosition(rotatedPosition + position);
-    }*/
-
     rotation = glm::vec3(GameUtils::Repeat(newRotation.x, 360.0f),
     GameUtils::Repeat(newRotation.y, 360.0f),
     GameUtils::Repeat(newRotation.z, 360.0f));
-    // rotation = newRotation;
 } 
 
 
 void GameObject::SetScale(const glm::vec3& newScale)
 {
-    // for (const auto& child : children)
-    // {
-    //     child->SetScale(child->GetScale() / scale * newScale);
-    // }
     scale = newScale;
 }
 

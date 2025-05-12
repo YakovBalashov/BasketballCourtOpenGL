@@ -12,8 +12,6 @@
 #include "GameObjects/PointLight.h"
 #include "GameObjects/Skybox.h"
 #include "GameObjects/SunNode.h"
-#include "GameObjects/TestObject.h"
-#include "Rendering/DebugMesh.h"
 #include "Rendering/Texture.h"
 #include "Rendering/Material.h"
 
