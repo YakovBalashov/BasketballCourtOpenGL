@@ -58,7 +58,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -85,7 +85,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -136,7 +136,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -163,7 +163,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -213,7 +213,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -240,7 +240,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -290,7 +290,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -317,7 +317,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -367,7 +367,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -394,7 +394,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -444,7 +444,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -471,7 +471,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -521,7 +521,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -548,7 +548,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -599,7 +599,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -626,7 +626,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -676,7 +676,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -703,7 +703,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -753,7 +753,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -780,7 +780,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -831,7 +831,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -858,7 +858,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -908,7 +908,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -935,7 +935,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -985,7 +985,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1012,7 +1012,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1063,7 +1063,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1090,7 +1090,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1140,7 +1140,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1167,7 +1167,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1218,7 +1218,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1245,7 +1245,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1295,7 +1295,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1322,7 +1322,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1372,7 +1372,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1399,7 +1399,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1449,7 +1449,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1476,7 +1476,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1526,7 +1526,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1553,7 +1553,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1604,7 +1604,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1631,7 +1631,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1681,7 +1681,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1708,7 +1708,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1759,7 +1759,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1786,7 +1786,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1836,7 +1836,7 @@
       <PreprocessKeepComments>false</PreprocessKeepComments>
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
       <ShowIncludes>false</ShowIncludes>
       <SourceDependenciesFile>Debug\</SourceDependenciesFile>
@@ -1863,7 +1863,7 @@
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
@@ -1969,7 +1969,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
