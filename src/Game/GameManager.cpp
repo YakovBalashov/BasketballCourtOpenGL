@@ -61,7 +61,6 @@ void GameManager::SetupCameras()
 
     auto spectatorCamera = std::make_shared<Camera>(glm::vec3(7.0f, 15.0f, -20.0f), glm::vec3(210.0f, 180.0f, 0.0f), glm::vec3(1.0f));
     cameras.push_back(spectatorCamera);
-    // gameObjects.push_back(staticCameraB);
 
     auto droneModel = std::make_shared<Model>(ModelPaths::droneS);
     auto drone = std::make_shared<Drone>(glm::vec3(1.0f), droneModel, mainShader, std::make_shared<Material>(),
@@ -108,7 +107,6 @@ void GameManager::StartGame()
     glEnable(GL_DEPTH_TEST);
 
     InitializeShaders();
-    InitializeModels();
 
     SetupCameras();
 
@@ -225,8 +223,9 @@ void GameManager::StartGame()
 
     auto skyboxFolders = std::make_shared<std::vector<std::string>>(std::initializer_list<std::string>{TexturePaths::blueSkybox}); 
     skybox = std::make_shared<Skybox>(skyboxShader);
+
+    if (SceneConfig::debugGrid) GameUtils::GenerateGrid(DebugGrid::size, DebugGrid::step);
     
-    GameUtils::GenerateGrid(DebugGrid::size, DebugGrid::step);
     
     SetLightParameters(pointLight, streetLamp);
 
@@ -250,11 +249,6 @@ void GameManager::InitializeShaders()
                                                             ShaderPaths::colorFragmentShader);
     instance->animatedShader = std::make_shared<ShaderProgram>(ShaderPaths::animatedVertexShader,
                                        ShaderPaths::animatedFragmentShader);
-}
-
-void GameManager::InitializeModels()
-{
-    // TestObject::CreateMesh(testVertices, testIndices, sizeof(testVertices), sizeof(testIndices));
 }
 
 void GameManager::FinalizeGame()

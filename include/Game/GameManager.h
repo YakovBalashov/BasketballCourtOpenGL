@@ -59,9 +59,7 @@ public:
     void ChangeActiveCamera(int direction=1);
 
     static void InitializeShaders();
-
-    static void InitializeModels();
-
+    
     static void FinalizeGame();
 
     static void PrintGPUInfo();

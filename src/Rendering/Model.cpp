@@ -55,7 +55,6 @@ std::vector<std::shared_ptr<Texture>> Model::loadMaterialTextures(aiMaterial* ma
             if (cached_texture->path == pathFromAssimp) {
                 textures.push_back(cached_texture);
                 foundInCache = true;
-                std::cout << "Texture (Assimp path: [" << pathFromAssimp << "]) found in cache." << std::endl;
                 break;
             }
         }

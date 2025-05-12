@@ -10,11 +10,9 @@ namespace Window
 }
 
 
-namespace Scene
+namespace SceneConfig
 {
-    constexpr float width = 1.0f;
-    constexpr float height = 1.0f;
-    constexpr float depth = 1.0f;
+    constexpr auto debugGrid = false;
 }
 
 namespace LightsConfig
