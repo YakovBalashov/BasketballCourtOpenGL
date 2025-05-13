@@ -395,7 +395,7 @@
       <EnablePREfast>false</EnablePREfast>
       <OmitFramePointers>false</OmitFramePointers>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_VC80_UPGRADE=0x0710;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\yakov\Sandbox\sem-4\pgr\pgr-framework\include;C:\Users\yakov\Sandbox\sem-4\pgr\sem-project\basketball_a\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(PGR_FRAMEWORK_ROOT)include;$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="src\GameObjects\Cube.cpp">
