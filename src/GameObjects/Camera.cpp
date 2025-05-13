@@ -1,4 +1,11 @@
-﻿#include "../../include/GameObjects/Camera.h"
+﻿/**
+* \file Camera.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Camera class with basic camera functionality.
+ */
+
+#include "../../include/GameObjects/Camera.h"
 
 glm::mat4 Camera::GetViewMatrix() const
 {

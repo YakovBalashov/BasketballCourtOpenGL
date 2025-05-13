@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file PointLight.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief PointLight class that represents a point light source in the game.
+ */
+
+#pragma once
 #include "Interactable.h"
 #include "MeshObject.h"
 

@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file Interactable.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Interface for interactable objects in the game.
+ */
+
+#pragma once
 
 class Interactable 
 {

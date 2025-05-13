@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file Cube.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Cube class that represents a cube object in the game.
+ */
+
+#pragma once
 #include "MeshObject.h"
 
 class Cube : public MeshObject

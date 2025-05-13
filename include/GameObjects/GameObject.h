@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file GameObject.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Base class for all game objects in the game.
+ */
+
+#pragma once
 #include "pgr.h"
 
 class GameObject : public std::enable_shared_from_this<GameObject>

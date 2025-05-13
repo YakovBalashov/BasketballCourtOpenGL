@@ -1,4 +1,10 @@
-﻿#pragma once
+﻿/**
+* \file Counter.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Counter class that displays time left for the attack.
+ */
+#pragma once
 #include "MeshObject.h"
 
 class Counter : public MeshObject

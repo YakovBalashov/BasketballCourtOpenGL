@@ -1,4 +1,11 @@
-﻿#include <Game/PlayerInput.h>
+﻿/**
+* \file PlayerInput.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Player input handling for the basketball game.
+ */
+
+#include <Game/PlayerInput.h>
 #include <Game/GameManager.h>
 
 using KeyMethod = void (*)(unsigned char);

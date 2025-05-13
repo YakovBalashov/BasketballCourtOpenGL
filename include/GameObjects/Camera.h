@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file Camera.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Camera class with basic camera functionality.
+ */
+
+#pragma once
 
 #include "GameObject.h"
 #include "pgr.h"

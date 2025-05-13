@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file PlayerCamera.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief PlayerCamera class that represents the camera controlled by the player.
+ */
+
+#pragma once
 #include "Camera.h"
 
 class PlayerCamera : public Camera

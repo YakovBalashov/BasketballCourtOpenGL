@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file RenderableObject.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Base class for all renderable objects in the game.
+ */
+
+#pragma once
 #include "Rendering/ShaderProgram.h"
 #include "GameObjects/GameObject.h"
 

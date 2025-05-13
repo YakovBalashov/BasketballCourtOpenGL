@@ -1,4 +1,11 @@
-﻿#include "GameObjects/GameObject.h"
+﻿/**
+* \file GameObject.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Base class for all game objects in the game.
+ */
+
+#include "GameObjects/GameObject.h"
 
 #include <iostream>
 

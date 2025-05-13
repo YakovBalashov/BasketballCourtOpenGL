@@ -1,4 +1,11 @@
-﻿#include "../../include/GameObjects/Counter.h"
+﻿/**
+* \file Counter.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Counter class that displays time left for the attack.
+ */
+
+#include "../../include/GameObjects/Counter.h"
 
 #include "Game/GameManager.h"
 #include "Game/GameUtils.h"

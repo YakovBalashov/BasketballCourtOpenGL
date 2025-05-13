@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file BasketballObject.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Basketball object class.
+ */
+
+#pragma once
 #include "Interactable.h"
 #include "MeshObject.h"
 #include "ModelObject.h"

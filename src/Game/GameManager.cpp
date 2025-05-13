@@ -1,4 +1,11 @@
-﻿#include "Game/GameManager.h"
+﻿/**
+* \file GameManager.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Game manager for the basketball game.
+ */
+
+#include "Game/GameManager.h"
 
 #include "Game/meshes.h"
 #include "Game/PlayerInput.h"

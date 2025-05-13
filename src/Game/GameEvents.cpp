@@ -1,4 +1,11 @@
-﻿#include "Game/GameEvents.h"
+﻿/**
+* \file GameEvents.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Game events handler for the basketball game.
+ */
+
+#include "Game/GameEvents.h"
 #include "Game/GameManager.h"
 #include "GameObjects/Camera.h"
 #include "GameObjects/Camera.h"

@@ -1,4 +1,11 @@
-﻿#include "../../include/Game/CollisionManager.h"
+﻿/**
+* \file CollisionManager.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Collision manager for the game.
+ */
+
+#include "../../include/Game/CollisionManager.h"
 
 RectangleArea mainArea = RectangleArea(-24.0f, 37.0f, -21.0f, 23.0f);
 RectangleArea pocketA = RectangleArea(0.0f, 12.5f, 20.0f, 42.0f);

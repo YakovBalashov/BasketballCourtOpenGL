@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file ShaderProgram.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Shader program class for managing OpenGL shaders and uniforms.
+ */
+
+#pragma once
 #include "Material.h"
 #include "pgr.h"
 #include "GameObjects/Camera.h"

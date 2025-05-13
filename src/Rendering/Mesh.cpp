@@ -1,4 +1,12 @@
-﻿#include "Rendering/Mesh.h"
+﻿/**
+* \file Mesh.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Mesh class that represents a mesh.
+ */
+
+
+#include "Rendering/Mesh.h"
 
 #include <iostream>
 

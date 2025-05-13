@@ -1,4 +1,11 @@
-﻿#include "../../include/GameObjects/SunNode.h"
+﻿/**
+* \file SunNode.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief SunNode class that represents a sun object in the game.
+ */
+
+#include "../../include/GameObjects/SunNode.h"
 
 #include "Game/GameManager.h"
 

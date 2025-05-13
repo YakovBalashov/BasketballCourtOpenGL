@@ -1,5 +1,11 @@
-﻿#include "Rendering/ModelLoader.h"
+﻿/**
+* \file MeshObject.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief MeshObject class that represents a 3D object with a mesh and material.
+ */
 
+#include "Rendering/ModelLoader.h"
 #include "GameObjects/MeshObject.h"
 
 MeshObject::MeshObject(const glm::vec3& position, const glm::vec3& rotation, const glm::vec3& scale,

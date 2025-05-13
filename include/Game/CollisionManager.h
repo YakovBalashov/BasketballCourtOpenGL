@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file CollisionManager.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Collision manager for the game.
+ */
+
+#pragma once
 #include "pgr.h"
 #include "GameObjects/Camera.h"
 #include "GameObjects/Camera.h"

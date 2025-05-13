@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file GameUtils.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Utility methods for the game.
+ */
+
+#pragma once
 
 #include "pgr.h"
 #include "Rendering/Mesh.h"

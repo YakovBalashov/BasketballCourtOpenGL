@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file Material.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Material class that represents the material properties of a 3D object.
+ */
+
+#pragma once
 
 #include "pgr.h"
 

@@ -1,4 +1,12 @@
-﻿#include "../../include/Rendering/Model.h"
+﻿/**
+* \file Model.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Model class for loading and rendering 3D models.
+ */
+
+
+#include "../../include/Rendering/Model.h"
 
 #include <iostream>
 

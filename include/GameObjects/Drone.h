@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file Drone.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Drone class that represents a drone object in the game.
+ */
+
+#pragma once
 #include "Camera.h"
 #include "ModelObject.h"
 #include "Game/GameUtils.h"

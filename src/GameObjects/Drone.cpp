@@ -1,4 +1,11 @@
-﻿#include "../../include/GameObjects/Drone.h"
+﻿/**
+* \file Drone.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Drone class that represents a drone object in the game.
+ */
+
+#include "../../include/GameObjects/Drone.h"
 
 #include "Game/GameUtils.h"
 #include <glm/gtx/norm.hpp>

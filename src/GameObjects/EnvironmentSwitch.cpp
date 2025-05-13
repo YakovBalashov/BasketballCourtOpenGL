@@ -1,4 +1,11 @@
-﻿#include "../../include/GameObjects/EnvironmentSwitch.h"
+﻿/**
+* \file EnvironmentSwitch.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Environment switch class that represents a switch in the game.
+ */
+
+#include "../../include/GameObjects/EnvironmentSwitch.h"
 
 #include "Game/GameManager.h"
 

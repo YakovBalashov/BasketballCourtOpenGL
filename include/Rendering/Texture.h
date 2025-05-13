@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file Texture.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Texture class for loading and managing textures.
+ */
+
+#pragma once
 #include <string>
 #include "pgr.h"
 

@@ -1,4 +1,11 @@
-﻿#include <GameObjects/Skybox.h>
+﻿/**
+* \file Skybox.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Skybox class that represents a skybox in the game.
+ */
+
+#include <GameObjects/Skybox.h>
 
 #include "Game/GameManager.h"
 #include "Game/GameUtils.h"

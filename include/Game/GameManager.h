@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file GameManager.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Game manager for the basketball game.
+ */
+
+#pragma once
 
 #include <iostream>
 #include <list>

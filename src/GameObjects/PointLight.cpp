@@ -1,4 +1,12 @@
-﻿#include "../../include/GameObjects/PointLight.h"
+﻿/**
+* \file PointLight.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief PointLight class that represents a point light source in the game.
+ */
+
+
+#include "../../include/GameObjects/PointLight.h"
 
 #include <iostream>
 

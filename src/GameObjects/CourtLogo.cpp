@@ -1,4 +1,11 @@
-﻿#include "CourtLogo.h"
+﻿/**
+* \file basketball.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Main entry point for the basketball game.
+ */
+
+#include "../../include/GameObjects/CourtLogo.h"
 
 
 void CourtLogo::RenderObject(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix)

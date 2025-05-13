@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file SunNode.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief SunNode class that represents a sun object in the game.
+ */
+
+#pragma once
 #include "ModelObject.h"
 
 class SunNode : public ModelObject

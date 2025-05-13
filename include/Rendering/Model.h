@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file Model.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Model class for loading and rendering 3D models.
+ */
+
+#pragma once
 #include <memory>
 #include <string>
 #include <vector>

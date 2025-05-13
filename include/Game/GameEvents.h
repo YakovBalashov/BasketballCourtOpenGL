@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file GameEvents.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Game events handler for the basketball game.
+ */
+
+#pragma once
 
 #include "pgr.h"
 #include "Game/config.h"

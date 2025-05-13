@@ -1,4 +1,11 @@
-﻿#include "../../include/Game/meshes.h"
+﻿/**
+* \file meshes.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Mesh data for the game.
+ */
+
+#include "../../include/Game/meshes.h"
 
 namespace MeshVertices
 {

@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file EnvironmentSwitch.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Environment switch class that represents a switch in the game.
+ */
+
+#pragma once
 #include "Interactable.h"
 #include "MeshObject.h"
 

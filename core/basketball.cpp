@@ -1,3 +1,10 @@
+/**
+* \file basketball.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Main entry point for the basketball game.
+ */
+
 #include "Game/GameManager.h"
 
 

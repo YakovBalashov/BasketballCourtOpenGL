@@ -1,4 +1,11 @@
-﻿#include "../../include/GameObjects/BasketballObject.h"
+﻿/**
+* \file BasketballObject.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Basketball object class.
+ */
+
+#include "../../include/GameObjects/BasketballObject.h"
 
 #include "Game/GameManager.h"
 

@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file ModelObject.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief ModelObject class that represents a 3D object with a model and material.
+ */
+
+#pragma once
 
 #include <GameObjects/RenderableObject.h>
 #include <Rendering/Model.h>

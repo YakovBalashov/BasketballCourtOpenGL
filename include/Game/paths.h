@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file paths.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Paths for the game assets.
+ */
+
+#pragma once
 
 namespace TexturePaths
 {

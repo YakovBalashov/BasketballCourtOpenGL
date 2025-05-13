@@ -1,4 +1,11 @@
-﻿#include "Game/config.h"
+﻿/**
+* \file config.cpp
+ * \brief Configuration file for the game.
+ * \author Yakov Balashov
+ * \date Summer Semester 2025 
+ */
+
+#include "Game/config.h"
 
 namespace LightsConfig
 {

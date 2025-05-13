@@ -1,4 +1,12 @@
-﻿#include "Rendering/ShaderProgram.h"
+﻿/**
+* \file ShaderProgram.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Shader program class for managing OpenGL shaders and uniforms.
+ */
+
+
+#include "Rendering/ShaderProgram.h"
 
 #include <iostream>
 

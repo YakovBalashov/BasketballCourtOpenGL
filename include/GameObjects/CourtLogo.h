@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file CourtLogo.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Court logo class that represents the logo on the court.
+ */
+
+#pragma once
 #include "MeshObject.h"
 #include "pgr.h"
 

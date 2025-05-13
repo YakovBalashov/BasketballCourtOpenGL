@@ -1,4 +1,11 @@
-﻿#include "GameObjects/RenderableObject.h"
+﻿/**
+* \file RenderableObject.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Base class for all renderable objects in the game.
+ */
+
+#include "GameObjects/RenderableObject.h"
 
 void RenderableObject::Render(const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix)
 {

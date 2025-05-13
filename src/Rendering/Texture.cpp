@@ -1,4 +1,12 @@
-﻿#include "../../include/Rendering/Texture.h"
+﻿/**
+* \file Texture.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Texture class for loading and managing textures.
+ */
+
+
+#include "../../include/Rendering/Texture.h"
 
 Texture::Texture(const std::string& filePath, GLint wrapS, GLint wrapT, GLint minFilter, GLint magFilter)
 {

@@ -1,3 +1,10 @@
+/**
+ * \file config.h
+ * \brief Configuration file for the game.
+ * \author Yakov Balashov
+ * \date Summer Semester 2025 
+ */
+
 #pragma once
 
 #include "pgr.h"

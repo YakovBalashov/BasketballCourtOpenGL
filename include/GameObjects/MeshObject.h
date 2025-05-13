@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file MeshObject.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief MeshObject class that represents a 3D object with a mesh and material.
+ */
+
+#pragma once
 #include "GameObjects/RenderableObject.h"
 #include "Rendering/Material.h"
 #include "Rendering/Mesh.h"

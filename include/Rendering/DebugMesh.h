@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file DebugMesh.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief DebugMesh class that represents a mesh used for debugging purposes.
+ */
+
+#pragma once
 #include "Mesh.h"
 
 class DebugMesh : public Mesh

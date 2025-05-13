@@ -1,4 +1,12 @@
-﻿#include "../../include/Rendering/DebugMesh.h"
+﻿/**
+* \file DebugMesh.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief DebugMesh class that represents a mesh used for debugging purposes.
+ */
+
+
+#include "../../include/Rendering/DebugMesh.h"
 
 void DebugMesh::Render()
 {

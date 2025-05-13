@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file Mesh.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Mesh class that represents a mesh.
+ */
+
+#pragma once
 
 #include "pgr.h"
 

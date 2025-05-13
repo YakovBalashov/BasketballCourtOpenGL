@@ -1,4 +1,11 @@
-﻿#include <Game/GameUtils.h>
+﻿/**
+* \file GameUtils.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Utility methods for the game.
+ */
+
+#include <Game/GameUtils.h>
 
 #include "Game/GameManager.h"
 #include "Game/meshes.h"

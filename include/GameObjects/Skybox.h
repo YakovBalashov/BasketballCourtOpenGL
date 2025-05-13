@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file Skybox.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Skybox class that represents a skybox in the game.
+ */
+
+#pragma once
 #include <GameObjects/RenderableObject.h>
 #include <Game/paths.h>
 #include <Game/config.h>

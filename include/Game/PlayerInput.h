@@ -1,4 +1,11 @@
-﻿#pragma once
+﻿/**
+* \file PlayerInput.h
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief Player input handling for the basketball game.
+ */
+
+#pragma once
 #include <unordered_map>
 #include <glm/glm.hpp>
 

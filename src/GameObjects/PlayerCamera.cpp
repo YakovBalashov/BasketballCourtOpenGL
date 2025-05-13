@@ -1,4 +1,12 @@
-﻿#include <GameObjects/PlayerCamera.h>
+﻿/**
+* \file PlayerCamera.cpp
+ * \author Yakov Balashov
+ * \date Summer Semester 2025
+ * \brief PlayerCamera class that represents the camera controlled by the player.
+ */
+
+
+#include <GameObjects/PlayerCamera.h>
 #include <Game/GameManager.h>
 
 #include "Game/CollisionManager.h"
